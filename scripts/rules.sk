@@ -1,0 +1,20 @@
+on player join:
+	wait 10 seconds
+	if {rules::%uuid of event-player%::latest} is not set:
+		set {rules::%uuid of event-player%::latest} to 0
+	if {rules::%uuid of event-player%::latest} is less than {latest_rules}:
+		message "&dThere's a new version of the server rules! Please make sure to read the book that was just given to you. If you need another copy, then simply do /rules" to event-player
+		execute the command "/kit rules %name of event-player%"
+		execute the command "/alog rules %name of event-player% received rulebook version %{latest_rules}% (they last read version %{rules::%uuid of event-player%::latest}%)"
+		set {rules::%uuid of event-player%::latest} to {latest_rules}
+
+command /updaterules:
+	permission: group.owner
+	trigger:
+		set {latest_rules} to {latest_rules} + 1
+		message "The current rule version is now %{latest_rules}%." to player
+
+command /rules:
+	permission: group.default
+	trigger:
+		execute the command "/kit rules %name of event-player%"

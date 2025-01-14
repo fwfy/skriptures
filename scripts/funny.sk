@@ -1,0 +1,20 @@
+#on redstone change:
+#	if event-block is wet sponge:
+#		execute console command "/w fwfy %redstone power of event-block%"
+#		if redstone power of event-block is greater than 0:
+#			create an explosion of force 10 at event-block
+
+command /spoon:
+	permission: group.default
+	trigger:
+		loop 100 times:
+			wait 1 tick
+			set {_x} to the player's x coordinate + ((sin(loop-value) * 200)-100)
+			set {_y} to the player's y coordinate
+			set {_z} to the player's z coordinate + ((cos(loop-value) * 200)-100)
+			set {_pos} to the location at ({_x}, {_y}, {_z})
+			# message "%{_pos}% spiggity" to player
+			make the player look at vector from the player to {_pos}
+command /effect [<string>] [<string>] [<string>] [<string>] [<string>] [<string>] [<string>] [<string>]:
+	trigger:
+		kill the player

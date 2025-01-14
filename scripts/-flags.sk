@@ -1,0 +1,121 @@
+on script load:
+	set {nation_world} to "build"
+	set {flags.nation_lock} to 0
+
+on place of a banner:
+	if the block at location 1 meter below the block can hold 1 cobblestone:
+		cancel event
+	else:
+		# message "%block%" to player
+		if the name of the player's tool contains "Nation: ":
+			if "%block%" contains "standing":
+				if "%{flags.%uuid of player%::CurrentlyOwnedNation}%" is "<none>":
+					set {_parts::*} to the name of the player's tool split at "Nation: "
+					if player is in world "%{nation_world}%":
+						if "%{_parts::2}%" isn't equal to "<none>":
+							if "%{_parts::3}%" is equal to "<none>":
+								message "&bPlease wait, setting up claim..." to player
+								set {flags.action_lock} to 1
+								set {flags.%uuid of player%::CurrentlyOwnedNation} to {_parts::2}
+								set {flags.%uuid of player%::NationFlagBlock} to location of the block
+								set {flags.%location of the block%::NationFlagOwner} to uuid of player
+								set {_rg} to "_nation_%{_parts::2}%"
+								set {_x1} to round x-coordinate of location of block
+								set {_x2} to round x-coordinate of location of block
+								set {_z1} to round z-coordinate of location of block
+								set {_z2} to round z-coordinate of location of block
+								add 125 to {_x1}
+								add 125 to {_z1}
+								subtract 125 from {_x2}
+								subtract 125 from {_z2}
+								set {_px} to round down x-coordinate of block
+								set {_py} to round down y-coordinate of location of block 1 under block
+								set {_pz} to round down z-coordinate of block
+								execute the command "/setblock %{_px}% %{_py}% %{_pz}% bedrock"
+								# send action bar "%{_x1}%, %{_x2}%, %{_z1}%, %{_z2}%" to player
+								wait for 5 ticks
+								execute the command "//world %{nation_world}%"
+								wait for 5 ticks
+								execute the command "//pos1 %{_x1}%,0,%{_z1}%"
+								wait for 5 ticks
+								execute the command "//pos2 %{_x2}%,0,%{_z2}%"
+								wait for 5 ticks
+								execute the command "//expand vert"
+								wait for 5 ticks
+								execute the command "/rg define %{_rg}%"
+								wait for 5 ticks
+								execute the command "//desel"
+								wait for 5 ticks
+								execute the command "/rg addmember %{_rg}% %name of player%"
+								wait for 5 ticks
+								execute the command "/rg flag %{_rg}% -g members passthrough allow"
+								execute the command "/rg flag %{_rg}% -g members use allow"
+								execute the command "/rg flag %{_rg}% -g members interact allow"
+								execute the command "/rg flag %{_rg}% pvp allow"
+								set {flags.action_lock} to 0
+								message "&2The nation %{flags.%uuid of player%::CurrentlyOwnedNation}% has been established! To disband it, break the nation flag." to player
+							else:
+								message "&4Your nation's name cannot contain spaces!" to player
+								cancel event
+						else:
+							message "&4You need to make a name for your nation!" to player
+							cancel event
+					else:
+						message "&4You cannot define nations in other dimensions!" to player
+						cancel event
+				else:
+					message "&4You already own the nation %{flags.%uuid of player%::CurrentlyOwnedNation}%!" to player
+					cancel event
+			else:
+				message "&4Nation flags cannot be placed on walls." to player
+				cancel event
+
+on break of a banner:
+	if {flags.action_lock} is not 0:
+		cancel event
+	if {flags.action_lock} is 0:
+		set {flags.action_lock} to 1
+		set {_flagowner} to "%{flags.%location of block%::NationFlagOwner}%"
+		if {_flagowner} is not "<none>":
+			if {_flagowner} is not uuid of player:
+				message "&4You can't break that!" to player
+				cancel event
+			else:
+				message "&aDisowned nation %{flags.%uuid of player%::CurrentlyOwnedNation}%." to player
+				execute the command "/rg del _nation_%{flags.%uuid of player%::CurrentlyOwnedNation}%"
+				set {_px} to round down x-coordinate of block
+				set {_py} to round down y-coordinate of location of block 1 under block
+				set {_pz} to round down z-coordinate of block
+				execute the command "/setblock %{_px}% %{_py}% %{_pz}% stone"
+				delete {flags.%uuid of player%::CurrentlyOwnedNation}
+				delete {flags.%{flags.%uuid of player%::NationFlagBlock}%::NationFlagOwner}
+				delete {flags.%uuid of player%::NationFlagBlock}
+		set {flags.action_lock} to 0
+
+command /invite [<offline player>]:
+	trigger:
+		set {_Nation} to "%{flags.%uuid of player%::CurrentlyOwnedNation}%"
+		if {_Nation} is not "<none>":
+			execute the command "/rg addmember _nation_%{_Nation}% %arg-1%"
+			message "&aUser &2%arg-1%&a has been added to the nation!" to player
+			message "&aUser &r%player%&a has added you to the nation &2%{_Nation}%&a." to arg-1
+		else:
+			message "&4You aren't the owner of any nations!" to player
+
+command /uninvite [<offline player>]:
+	trigger:
+		set {_Nation} to "%{flags.%uuid of player%::CurrentlyOwnedNation}%"
+		if {_Nation} is not "<none>":
+			if arg-1 isn't equal to player:
+				execute the command "/rg removemember _nation_%{_Nation}% %arg-1%"
+				message "&aUser &2%arg-1%&a has been &cremoved&a from the nation!" to player
+				message "&cUser &r%player%&c has removed you from the nation &2%{_Nation}%&c." to arg-1
+			else:
+				message "&4You cannot uninvite yourself!" to player
+		else:
+			message "&4You aren't the owner of any nations!" to player
+
+command /bypass [<offline player>]:
+	permission: group.owner
+	trigger:
+		delete {flags.%uuid of arg-1%::CurrentlyOwnedNation}

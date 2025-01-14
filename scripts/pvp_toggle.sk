@@ -1,0 +1,20 @@
+on damage of player:
+	if attacker is a player:
+		if attacker doesn't have the permission "custom.pvptoggle.bypass":
+			if {pvptoggle::%uuid of victim%} is "off":
+				message "&c&lYou can't attack this person, because they have PvP disabled!" to attacker
+				cancel event
+			if {pvptoggle::%uuid of attacker%} is "off":
+				message "&c&lYou cannot attack other players while you have PvP disabled!" to attacker
+				cancel event
+
+command /allowpvp <boolean>:
+	executable by: players
+	description: Allows you to switch between allowing PvP, or having a PvE-only experience.
+	trigger:
+		if the 1st argument is yes:
+			set {pvptoggle::%uuid of player%} to "on"
+			message "&lYour current PvP setting is now [&a&lON&f&l]!"
+		if the 1st argument is no:
+			set {pvptoggle::%uuid of player%} to "off"
+			message "&lYour current PvP setting is now [&c&lOFF&f&l]!"

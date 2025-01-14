@@ -1,0 +1,19 @@
+on player join:
+	set {togglereply::%uuid of event-player%::mode} to "normal"
+
+command /togglereply [<player>]:
+	permission: custom.tr
+	aliases: /tr
+	trigger:
+		set {_target} to arg-1
+		if {_target} is not set:
+			set {togglereply::%uuid of player%::mode} to "normal"
+			message "&bEntered global chat!" to player
+		else:
+			set {togglereply::%uuid of player%::mode} to arg-1
+			message "&bEntered a chat with &a%arg-1%&b!" to player
+
+on chat:
+	if {togglereply::%uuid of event-player%::mode} is not "normal":
+		cancel event
+		make event-player execute the command "/msg %{togglereply::%uuid of event-player%::mode}% %message%"
