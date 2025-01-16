@@ -1,0 +1,2 @@
+on player damage:
+	message "%damage cause%" to player
