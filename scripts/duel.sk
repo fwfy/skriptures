@@ -1,3 +1,6 @@
+on join:
+	set {duel::%uuid of player%::cancel_next_fall} to 0
+
 on shoot: 
 	if projectile is an ender pearl:
 		if shooter is a player:
