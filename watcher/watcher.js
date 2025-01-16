@@ -11,7 +11,8 @@ connector.connect({
 
 async function downloadAndReload() {
 	console.log("COMMIT DETECTED! downloading new scripts and reloading.");
-	await exec(`./dirtywork.sh`);
+	let { stdout, stderr } = await exec(`./dirtywork.sh`);
+	console.log(stdout,stderr);
 	rcon.send("sk reload all");
 }
 
