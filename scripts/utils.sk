@@ -1,13 +1,8 @@
-# set {owner} to "fwfy" parsed as an offlineplayer
-
 command /reboot:
 	permission: skript.admin
 	trigger:
 		if online player count is 0:
 			restart server
-		#else if online player count is 1:
-		#	if {owner} is online:
-		#		restart server
 		broadcast "[&c!!!&r] &6Server rebooting in 30 seconds!!"
 		wait for 10 seconds
 		broadcast "[&c!!!&r] &6Server rebooting in 20 seconds!!"

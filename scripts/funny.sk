@@ -1,9 +1,3 @@
-#on redstone change:
-#	if event-block is wet sponge:
-#		execute console command "/w fwfy %redstone power of event-block%"
-#		if redstone power of event-block is greater than 0:
-#			create an explosion of force 10 at event-block
-
 command /spoon:
 	permission: group.default
 	trigger:
@@ -13,11 +7,7 @@ command /spoon:
 			set {_y} to the player's y coordinate
 			set {_z} to the player's z coordinate + ((cos(loop-value) * 200)-100)
 			set {_pos} to the location at ({_x}, {_y}, {_z})
-			# message "%{_pos}% spiggity" to player
 			make the player look at vector from the player to {_pos}
-command /effect [<string>] [<string>] [<string>] [<string>] [<string>] [<string>] [<string>] [<string>]:
-	trigger:
-		kill the player
 
 command /verybigexplosiondonotrunthiscommandunlessyouwanttoobliterateeverythingwithina500mileradiusofyourself:
 	permission: group.admin
@@ -29,15 +19,12 @@ command /verybigexplosiondonotrunthiscommandunlessyouwanttoobliterateeverythingw
 			set {_z} to the player's z coordinate + ((cos(loop-value) * 20)-10)
 			set {_pos} to the location at ({_x}, {_y}, {_z})
 			create an explosion of force 100 at {_pos}
-		#create an explosion at the player with power 25
 
 on spawn of a skeleton:
 	if random number from 0 to 100 is less than 10:
-		# execute the command "/alog huevo huevo"
 		wait 1 tick
 		set tool of event-entity to 1 egg
 		enchant event-entity's tool with knockback 10
-		# wait 1 tick
 		execute the command "/team join huevo @e[type=skeleton]"
 		apply infinite glowing 1 to event-entity
 
