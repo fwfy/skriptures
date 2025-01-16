@@ -1,7 +1,7 @@
 on shoot: 
 	if projectile is an ender pearl:
 		if shooter is a player:
-			if {duel::%uuid of shooter%::cancel_next_fall} is unset:
+			if {duel::%uuid of shooter%::cancel_next_fall} is not set:
 				set {duel::%uuid of shooter%::cancel_next_fall} to 0
 			add 1 to {duel::%uuid of shooter%::cancel_next_fall}
 
