@@ -1,5 +1,5 @@
 #!/bin/bash
-export DEST=test
+export DEST=/home/smp45/new/data/plugins/Skript/scripts
 git clone --depth=1 git@github.com:fwfy/skriptures
 rm -rf $DEST
 mkdir $DEST
