@@ -11,9 +11,11 @@ connector.connect({
 
 async function downloadAndReload() {
 	console.log("COMMIT DETECTED! downloading new scripts and reloading.");
+	rcon.send("w fwfy watcher.js is applying new changes");
 	let { stdout, stderr } = await exec(`./dirtywork.sh`);
 	console.log(stdout,stderr);
 	rcon.send("sk reload all");
+	rcon.send("w fwfy watcher.js has finished applying changes!");
 }
 
 connector.on("skripture_hook", data => {
