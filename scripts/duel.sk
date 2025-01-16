@@ -1,2 +1,12 @@
-on player damage:
-	message "%damage cause%" to player
+on shoot: 
+	if projectile is an ender pearl:
+		if shooter is a player:
+			if {duel::%uuid of shooter%::cancel_next_fall} is unset:
+				set {duel::%uuid of shooter%::cancel_next_fall} to 0
+			add 1 to {duel::%uuid of shooter%::cancel_next_fall}
+
+on damage of player:
+	if damage cause is fall:          
+		if {duel::%uuid of victim%::cancel_next_fall} is bigger than 0:
+			cancel event
+			subtract 1 from {duel::%uuid of victim%::cancel_next_fall}
