@@ -1,0 +1,16 @@
+on damage of entity:
+        # execute the command "/w fwfy %victim%"
+        if "%victim%" is "dropped diamond":
+                # execute the command "/w fwfy %type of block at location of victim%"
+                if "%type of block at location of victim%" is "fire":
+                        delete victim
+                        set block at location of victim to sponge
+                if "%type of block at location of victim%" is "lava":
+                        delete victim
+                        loop 100 times:
+                                wait 1 tick
+                                set {_i} to loop-value
+                                summon a baby villager:
+                                        thrust the villager up at speed 10
+                                        thrust the villager north at speed sin({_i}*10)/2
+                                        thrust the villager west at speed cos({_i}*10)/2

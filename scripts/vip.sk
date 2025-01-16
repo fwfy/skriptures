@@ -23,7 +23,10 @@ every 3 ticks:
 on shoot:
 	if shooter is holding an egg named "&c&l[&e&rSPECIAL&c&l]&4 EGG OF TRUTH":
 		execute console command "/minecraft:kill @e[type=egg]"
-		execute console command "/bc %name of shooter% is gay lol"
+		execute console command "/bc &r%name of shooter% deployed the &4EGG OF TRUTH&r."
+		execute console command "/difficulty hard"
+		execute console command "/bc &cServer difficulty set to Hard."
+		execute console command "/playsound minecraft:block.end_portal.spawn master @a 0 0 0 1"
 	if shooter is holding a bow: #named "&c&l[&e&rSPECIAL&c&l]&4 Long Bow Long":
 		#message "a" to the shooter
 		if level of protection on shooter's held item is 12:

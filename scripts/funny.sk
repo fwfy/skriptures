@@ -18,3 +18,30 @@ command /spoon:
 command /effect [<string>] [<string>] [<string>] [<string>] [<string>] [<string>] [<string>] [<string>]:
 	trigger:
 		kill the player
+
+command /verybigexplosiondonotrunthiscommandunlessyouwanttoobliterateeverythingwithina500mileradiusofyourself:
+	permission: group.admin
+	trigger:
+		loop 10 times:
+			wait 1 tick
+			set {_x} to the player's x coordinate + ((sin(loop-value) * 20)-10)
+			set {_y} to the player's y coordinate
+			set {_z} to the player's z coordinate + ((cos(loop-value) * 20)-10)
+			set {_pos} to the location at ({_x}, {_y}, {_z})
+			create an explosion of force 100 at {_pos}
+		#create an explosion at the player with power 25
+
+on spawn of a skeleton:
+	if random number from 0 to 100 is less than 10:
+		# execute the command "/alog huevo huevo"
+		wait 1 tick
+		set tool of event-entity to 1 egg
+		enchant event-entity's tool with knockback 10
+		# wait 1 tick
+		execute the command "/team join huevo @e[type=skeleton]"
+		apply infinite glowing 1 to event-entity
+
+on drop:
+	if event-item is an egg:
+		wait 1 tick
+		kill event-item entity
