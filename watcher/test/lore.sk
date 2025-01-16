@@ -1,0 +1,6 @@
+on drop:
+	wait 1 second
+	if name of event-item is "&a&kLORELORELORELORE":
+		if block at location of event-dropped item is water:
+			kill event-dropped item
+			execute the command "/kit lorebook %event-player%"

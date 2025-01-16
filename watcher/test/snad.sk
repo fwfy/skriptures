@@ -1,0 +1,19 @@
+on script load:
+	set {snad::grindable::*} to "cobblestone block" and "gravel block"
+
+on drop:
+	wait 0.5 seconds
+	if {snad::grindable::*} contains "%type of event-item%":
+		if block at event-dropped item is stonecutter:
+			delete event-dropped item
+			set {_amount} to item amount of event-item
+			loop {_amount} times:
+				show 10 (electric spark with offset of 0.25, 0.25, 0.25) at event-dropped item
+				play sound "block.sand.break" with volume 0.5 to the player
+				wait 1 tick
+			if event-item is gravel:
+				set {_sus} to a random integer between 0 and {_amount}/4
+				drop {_amount}-{_sus} of sand at event-dropped item
+				drop {_sus} of suspicious sand at event-dropped item
+			if event-item is cobblestone:
+				drop {_amount} of gravel at event-dropped item

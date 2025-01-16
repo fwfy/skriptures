@@ -1,0 +1,26 @@
+on right click:
+	if book title of event-item is "Rules":
+		if author of event-item is "fwfy":
+			set {enforcer::%uuid of event-player%::latest_read} to {latest_rules}
+
+on drop:
+	# message book title of event-item to event-player
+	if book title of event-item is "Rules":
+		if author of event-item is "fwfy":
+			if {enforcer::%uuid of event-player%::latest_read} is not {latest_rules}:
+				if {enforcer::%uuid of event-player%::latest_read} is not set:
+					cancel event
+					play sound "ENTITY_FIREWORK_ROCKET_LAUNCH"
+					push event-player up at speed 1000
+					wait 1 second
+					play sound "ENTITY_FIREWORK_ROCKET_BLAST"
+					launch ball large colored red at event-player's location with duration 0
+					kill event-player
+				else:
+					message "pls read :(" to event-player
+					cancel event
+command /enforcer_reset <player>:
+	permission: group.owner
+	trigger:
+		message "diddy" to player
+		clear {enforcer::%uuid of arg-1%::latest_read}

@@ -1,0 +1,52 @@
+set {owner} to "fwfy" parsed as an offlineplayer
+
+command /reboot:
+        permission: skript.admin
+        trigger:
+		if online player count is 0:
+			restart server
+		else if online player count is 1:
+			if {owner} is online:
+				restart server
+                broadcast "[&c!!!&r] &6Server rebooting in 30 seconds!!"
+                wait for 10 seconds
+                broadcast "[&c!!!&r] &6Server rebooting in 20 seconds!!"
+                wait for 10 seconds
+                broadcast "[&c!!!&r] &6Server rebooting in 10 seconds!!"
+                wait for 5 seconds
+                broadcast "[&c!!!&r] &6Server rebooting in 5 seconds!!"
+                wait for 1 second
+                broadcast "[&c!!!&r] &6Server rebooting in 4 seconds!!"
+                wait for 1 second
+                broadcast "[&c!!!&r] &6Server rebooting in 3 seconds!!"
+                wait for 1 second
+                broadcast "[&c!!!&r] &6Server rebooting in 2 seconds!!"
+                wait for 1 second
+                broadcast "[&c!!!&r] &6Server rebooting in 1 second!!"
+                wait for 1 second
+                restart server
+
+command /forceact <string> <player> [<player>]:
+	description: idk  
+	permission: skript.admin
+	trigger:
+		if arg-1 is "hit":
+			make arg-2 attack arg-3
+		else if arg-1 is "look":
+			make arg-2 look at arg-3
+		else if arg-1 is "ride":
+			force arg-2 to ride arg-3
+		
+
+command /h [<text="home">]:
+	description: better version of the default /home command, will bring you to your home called "home" if you don't specify a name, otherwise it'll bring you to where you tell it you wanna go
+	trigger:
+		make player execute command "/home %arg-1%"
+
+on right click:
+	if name of event-player's tool is "&7Inspecting Gadget":
+		if event-block is not set:
+			message "&cYou aren't looking at a block!" to event-player
+		if event-block is set:
+			message "&bBlock Information: &r%event-block%" to player
+		cancel event
