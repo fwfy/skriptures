@@ -7,9 +7,9 @@ on right click:
 		else:
 			message "&4yoy cant" to player
 	if name of event-item contains "&5&l[&d&lRANK PASS&5&l]":
-		set {_info::*} to split the event-item's lore at ";"
+		set {_info::*} to split event-item's lore with delimeter ";"
 		message {_info::*} to player
-		remove 1 from event-itemstack
+		remove event-itemstack
 
 every 3 ticks:
 	loop all players:
