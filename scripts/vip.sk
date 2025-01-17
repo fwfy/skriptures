@@ -6,6 +6,10 @@ on right click:
 					set block at location of event-block to dirt
 		else:
 			message "&4yoy cant" to player
+	if name of event-item contains "&5&l[&d&lRANK PASS&5&l]":
+		set {_info::*} to split the event-item's lore at ";"
+		message {_info::*} to player
+		remove 1 from event-itemstack
 
 every 3 ticks:
 	loop all players:
