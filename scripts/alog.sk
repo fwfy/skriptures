@@ -1,4 +1,5 @@
 command /alog <text> <text>:
+	permission: group.admin
 	trigger:
 		loop all players:
 			if loop-player has permission "custom.alog":
