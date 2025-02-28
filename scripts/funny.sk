@@ -34,10 +34,22 @@ every 20 ticks:
 			else:
 				remove glowing from {_huevo}
 
+on chat:
+	replace all "bruh" in message with "spoon"
+	if message contains "blink" or if message contains "flash":
+		set {huevo::blink} to false
+		wait 300 seconds
+		set {huevo::blink} to true
+
+on load:
+	if {huevo::blink} is not set:
+		set {huevo::blink} to true
+
 every 10 ticks:
-	execute the command "/team modify huevo color red"
-	wait 5 ticks
-	execute the command "/team modify huevo color dark_red"
+	if {huevo::blink} is true:
+		execute the command "/team modify huevo color red"
+		wait 5 ticks
+		execute the command "/team modify huevo color dark_red"
 
 on spawn of a skeleton:
 	if random number from 0 to 100 is less than 10:
