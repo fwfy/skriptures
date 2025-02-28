@@ -29,7 +29,7 @@ every 20 ticks:
 				set {_distance} to the distance between loop-player and {_huevo}
 				if {_distance} is less than {_lowest}:
 					set {_lowest} to {_distance}
-			if {_distance} is less than 100:
+			if {_distance} is less than 50:
 				apply infinite glowing 1 to {_huevo}
 			else:
 				remove glowing from {_huevo}
