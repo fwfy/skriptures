@@ -14,6 +14,10 @@ command /hum <string>:
 	trigger:
 		if arg-1 is "bring":
 			set {hum::loc} to location of the player
+		else if arg-1 is "speed":
+			set {hum::speed} to abs(arg-2)
+		else if arg-1 is "scale":
+			set {hum::scale} to abs(arg-2)
 		else if arg-1 is "on":
 			set {hum::active} to true
 		else if arg-1 is "off":
@@ -67,11 +71,13 @@ on load:
 	set {hum::loc} to the location (0, 0, 0)
 	set {hum::active} to false
 	set {hum::tick_counter} to 0
+	set {hum::speed} to 1
+	set {hum::scale} to 1
 
 every tick:
-	add 1 to {hum::tick_counter}
+	add {hum::speed} to {hum::tick_counter}
 	if {hum::active} is true:
-		play sound "block.note_block.harp" with volume 0.5 with pitch sin({hum::tick_counter})+0.5 from {hum::loc}
+		play sound "block.note_block.harp" with volume 0.5 with pitch {hum::scale}*(sin({hum::tick_counter})+1) from {hum::loc}
 
 every 10 ticks:
 	if {huevo::blink} is true:
