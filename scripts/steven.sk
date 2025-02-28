@@ -28,4 +28,4 @@ command /stevenboard:
       set {_uuid} to loop-index
       set {_kills} to {steven::leaderboard::%{_uuid}%}
       set {_username} to name of offlineplayer({_uuid}) # Convert UUID to username
-      message "- &5%{_username}%: &c%{_kills}% kills." to player
+      message "- &e%{_username}%: &c%{_kills}% kills." to player
