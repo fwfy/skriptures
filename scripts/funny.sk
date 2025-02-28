@@ -9,7 +9,7 @@ command /spoon:
 			set {_pos} to the location at ({_x}, {_y}, {_z})
 			make the player look at vector from the player to {_pos}
 
-command /hum <string>:
+command /hum <string> <string>:
 	permission: group.admin
 	trigger:
 		if arg-1 is "bring":
@@ -68,7 +68,7 @@ on chat:
 on load:
 	if {huevo::blink} is not set:
 		set {huevo::blink} to true
-	set {hum::loc} to the location (0, 0, 0)
+	set {hum::loc} to the location (0, 0, 0) of the world "world"
 	set {hum::active} to false
 	set {hum::tick_counter} to 0
 	set {hum::speed} to 1
