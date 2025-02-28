@@ -34,6 +34,11 @@ every 20 ticks:
 			else:
 				remove glowing from {_huevo}
 
+every 10 ticks:
+	execute the command "/team modify huevo color red"
+	wait 5 ticks
+	execute the command "/team modify huevo color dark_red"
+
 on spawn of a skeleton:
 	if random number from 0 to 100 is less than 10:
 		wait 1 tick
