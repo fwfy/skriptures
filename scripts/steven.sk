@@ -1,9 +1,19 @@
+on join:
+  if {steven::leaderboard::%uuid of player%} is not set:
+    set {steven::leaderboard::%uuid of player%} to 0
+
 on death of a sheep:
   if victim's name is " Steven ":
+    add 1 to {steven::leaderboard::%uuid of player%}
     wait 300 seconds
     spawn a sheep at position of victim
     set name of the last spawned entity to " Steven "
 
-on entity drop:
-  if event-creature's name is " Steven ":
-    cancel event
+command /stevenboard:
+  permission: skript.admin
+  trigger:
+    sort {steven::leaderboard::*}
+    message "Steven Kill Leaderboard:" to player
+    loop {steven::leaderboard::*}:
+      set {_username} to offlineplayer(loop-index)
+      message "- %{_username}%: %{loop-value}% kills."
