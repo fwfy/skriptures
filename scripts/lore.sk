@@ -5,6 +5,6 @@ on drop:
 			kill event-dropped item
 			execute the command "/kit lorebook %event-player%"
 
-on rightclick holding an eye of ender:
-	if the player's tool is named "&4Eye of Sovereignty&r":
+on rightclick:
+	if the player is holding an eye of ender named "&4Eye of Sovereignty&r":
 		cancel event
