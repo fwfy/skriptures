@@ -15,9 +15,9 @@ command /hum <string>:
 		if arg-1 is "bring":
 			set {hum::loc} to location of the player
 		else if arg-1 is "speed":
-			set {hum::speed} to abs(arg-2)
+			set {hum::speed} to arg-2
 		else if arg-1 is "scale":
-			set {hum::scale} to abs(arg-2)
+			set {hum::scale} to arg-2
 		else if arg-1 is "on":
 			set {hum::active} to true
 		else if arg-1 is "off":
