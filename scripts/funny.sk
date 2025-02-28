@@ -75,7 +75,7 @@ on load:
 	set {hum::scale} to 1
 
 every tick:
-	add {hum::speed} to {hum::tick_counter}
+	set {hum::tick_counter} to {hum::tick_counter}+{hum::speed}
 	if {hum::active} is true:
 		play sound "block.note_block.harp" with volume 0.5 with pitch {hum::scale}*(sin({hum::tick_counter})+1) from {hum::loc}
 
