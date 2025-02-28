@@ -7,4 +7,4 @@ on drop:
 
 on shoot: 
 	if shooter is holding an eye of ender named "&4Eye of Sovereignty&r":
-			cancel event
+		cancel event
