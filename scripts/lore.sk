@@ -4,3 +4,8 @@ on drop:
 		if block at location of event-dropped item is water:
 			kill event-dropped item
 			execute the command "/kit lorebook %event-player%"
+
+on shoot: 
+	if projectile is an eye of ender:
+		if name of event-item is "&4Eye of Sovereignty&r":
+			cancel event
