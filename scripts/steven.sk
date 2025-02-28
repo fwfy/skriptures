@@ -1,9 +1,9 @@
 on death of a sheep:
-  if victim's name is "&4&5&rSteven":
+  if victim's name is " Steven ":
     wait 5 seconds
     spawn a sheep at position of victim
-    set name of the last spawned entity to "&4&5&rSteven"
+    set name of the last spawned entity to " Steven "
 
 on entity drop:
-  if event-creature's name is "&4&5&rSteven":
+  if event-creature's name is " Steven ":
     cancel event
