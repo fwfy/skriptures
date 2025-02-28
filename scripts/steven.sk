@@ -9,6 +9,11 @@ on death of a sheep:
     spawn a sheep at position of victim
     set name of the last spawned entity to " Steven "
 
+command /clearstevenboard:
+  permission: group.owner
+  trigger:
+    clear {steven::leaderboard::*}
+
 command /stevenboard:
   permission: skript.admin
   trigger:
