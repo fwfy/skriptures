@@ -6,5 +6,5 @@ on drop:
 			execute the command "/kit lorebook %event-player%"
 
 on shoot: 
-	if shooter is holding item named "&4Eye of Sovereignty":
+	if shooter is holding an ender eye named "&4Eye of Sovereignty":
 		cancel event
