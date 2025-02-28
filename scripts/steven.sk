@@ -4,7 +4,11 @@ on join:
 
 on death of a sheep:
   if victim's name is " Steven ":
-    set {steven::leaderboard::%uuid of player%} to {steven::leaderboard::%uuid of player%} + 1
+    if attacker is a player:
+      set {steven::leaderboard::%uuid of attacker%} to {steven::leaderboard::%uuid of attacker%} + 1
+      execute the command "/alog steven %name of attacker% just murdered a Steven!"
+    else:
+      execute the command "/alog steven A Steven just died of a natural cause!"
     wait 300 seconds
     spawn a sheep at position of victim
     set name of the last spawned entity to " Steven "
