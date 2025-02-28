@@ -71,7 +71,7 @@ on chat:
 
 on load:
 	if {huevo::blink} is not set:
-		set {huevo::blink} to truee
+		set {huevo::blink} to true
 	set {hum::loc} to the location (0, 0, 0) of the world "world"
 	set {hum::active} to false
 	set {hum::tick_counter} to 0
