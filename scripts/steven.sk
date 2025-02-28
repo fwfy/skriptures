@@ -14,6 +14,7 @@ command /stevenboard:
   trigger:
     sort {steven::leaderboard::*}
     message "Steven Kill Leaderboard:" to player
+    message "BEANS %{steven::leaderboard::*}%" to player
     loop {steven::leaderboard::*}:
       set {_username} to offlineplayer(loop-index)
-      message "- %{_username}%: %{loop-value}% kills."
+      message "- %{_username}%: %{loop-value}% kills." to player
