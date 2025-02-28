@@ -27,4 +27,5 @@ command /stevenboard:
     message "BEANS %{steven::leaderboard::*}%" to player
     loop {steven::leaderboard::*}:
       set {_username} to offlineplayer(loop-index)
-      message "- %{_username}%: %{steven::leaderboard::%{loop-index}%}% kills." to player
+      set {_kills} to {steven::leaderboard::{loop-index}}
+      message "- %{_username}%: %{_kills}% kills." to player
