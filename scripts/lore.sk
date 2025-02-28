@@ -5,6 +5,7 @@ on drop:
 			kill event-dropped item
 			execute the command "/kit lorebook %event-player%"
 
-on shoot: 
+on shoot:
+	execute the command "/alog test %name of shooter% threw %tool of shooter%"
 	if shooter is holding an ender eye named "&4Eye of Sovereignty":
 		cancel event
