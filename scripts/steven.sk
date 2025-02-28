@@ -17,7 +17,7 @@ command /clearstevenboard:
 command /stevenboard:
   permission: skript.admin
   trigger:
-    sort {steven::leaderboard::*}
+    # sort {steven::leaderboard::*}
     message "Steven Kill Leaderboard:" to player
     message "BEANS %{steven::leaderboard::*}%" to player
     loop {steven::leaderboard::*}:
