@@ -1,6 +1,6 @@
 on death of a sheep:
   if victim's name is " Steven ":
-    wait 5 seconds
+    wait 300 seconds
     spawn a sheep at position of victim
     set name of the last spawned entity to " Steven "
 
