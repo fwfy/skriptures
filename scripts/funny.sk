@@ -68,7 +68,7 @@ on spawn of a skeleton:
 		enchant event-entity's tool with knockback 10
 		execute the command "/team join huevo @e[type=skeleton]"
 		set name of event-entity to "El Huevo"
-		wait 10 seconds
+		wait 600 seconds
 		kill event-entity
 
 on drop:
