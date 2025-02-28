@@ -84,7 +84,7 @@ every tick:
 	set {hum::tick_counter} to {hum::tick_counter}+{hum::speed}
 	if {hum::active} is true:
 		loop {hum::voices} times:
-			play sound {hum::noise} with volume 0.5 with pitch ({hum::scale}*(sin({hum::tick_counter}))+(loop-value/{hum::voices}) from {hum::loc}
+			play sound {hum::noise} with volume 0.5 with pitch {hum::scale}*(sin({hum::tick_counter}))+(loop-value/{hum::voices}) from {hum::loc}
 		
 
 every 10 ticks:
