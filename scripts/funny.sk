@@ -20,13 +20,27 @@ command /verybigexplosiondonotrunthiscommandunlessyouwanttoobliterateeverythingw
 			set {_pos} to the location at ({_x}, {_y}, {_z})
 			create an explosion of force 100 at {_pos}
 
+every 20 ticks:
+	loop all skeletons:
+		if loop-entity's name is "El Huevo":
+			set {_lowest} to 500000
+			set {_huevo} to loop-entity
+			loop all players:
+				set {_distance} to the distance between loop-player and {_huevo}
+				if {_distance} is less than {_lowest}:
+					set {_lowest} to {_distance}
+			if {_distance} is less than 100:
+				apply infinite glowing 1 to {_huevo}
+			else:
+				remove glowing from {_huevo}
+
 on spawn of a skeleton:
 	if random number from 0 to 100 is less than 10:
 		wait 1 tick
 		set tool of event-entity to 1 egg
 		enchant event-entity's tool with knockback 10
 		execute the command "/team join huevo @e[type=skeleton]"
-		apply infinite glowing 1 to event-entity
+		set name of event-entity to "El Huevo"
 
 on drop:
 	if event-item is an egg:
