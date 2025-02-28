@@ -26,6 +26,7 @@ command /stevenboard:
     message "Steven Kill Leaderboard:" to player
     message "BEANS %{steven::leaderboard::*}%" to player
     loop {steven::leaderboard::*}:
-      set {_username} to offlineplayer(loop-index)
-      set {_kills} to {steven::leaderboard::{loop-index}}
+      set {_uuid} to loop-index
+      set {_kills} to {steven::leaderboard::%{_uuid}%}
+      set {_username} to name of offlineplayer({_uuid}) # Convert UUID to username
       message "- %{_username}%: %{_kills}% kills." to player
