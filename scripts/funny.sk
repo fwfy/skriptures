@@ -9,6 +9,16 @@ command /spoon:
 			set {_pos} to the location at ({_x}, {_y}, {_z})
 			make the player look at vector from the player to {_pos}
 
+command /hum:
+	permission: group.admin
+	trigger:
+		if arg-1 is "bring":
+			set {hum::loc} to location of the player
+		else if arg-1 is "on":
+			set {hum::active} to true
+		else if arg-1 is "off":
+			set {hum::active} to false
+
 command /verybigexplosiondonotrunthiscommandunlessyouwanttoobliterateeverythingwithina500mileradiusofyourself:
 	permission: group.admin
 	trigger:
@@ -54,6 +64,13 @@ on chat:
 on load:
 	if {huevo::blink} is not set:
 		set {huevo::blink} to true
+	set {hum::loc} to the location (0, 0, 0)
+	set {hum::active} to false
+	set {hum::tick_counter} to 0
+
+every tick:
+	add 1 to {hum::tick_counter}
+	play sound "block.note_block.harp" with volume 0.5 with pitch sin({hum::tick_counter})+0.5 from {hum::loc}
 
 every 10 ticks:
 	if {huevo::blink} is true:
