@@ -20,6 +20,16 @@ command /verybigexplosiondonotrunthiscommandunlessyouwanttoobliterateeverythingw
 			set {_pos} to the location at ({_x}, {_y}, {_z})
 			create an explosion of force 100 at {_pos}
 
+command /huevokill:
+	permission: skript.admin
+	trigger:
+		set {_killed} to 0
+		loop all skeletons:
+			if loop-entity's name is "El Huevo":
+				kill loop-entity
+				add 1 to {_killed}
+		message "&aDone! Killed &4&l%{_killed}%&r&a entities." to player
+
 every 20 ticks:
 	loop all skeletons:
 		if loop-entity's name is "El Huevo":
@@ -58,6 +68,8 @@ on spawn of a skeleton:
 		enchant event-entity's tool with knockback 10
 		execute the command "/team join huevo @e[type=skeleton]"
 		set name of event-entity to "El Huevo"
+		wait 10 seconds
+		kill event-entity
 
 on drop:
 	if event-item is an egg:
