@@ -5,14 +5,21 @@ on load:
   set {partycles::counter} to 0
 
 every tick:
-  increase {partycles::counter} by 1
+  increase {partycles::counter} by 5
   if {partycles::active} is true:
     set {_p1x} to x position of {partycles::loc} + sin({partycles::counter})
     set {_p1y} to y position of {partycles::loc} + sin({partycles::counter})
     set {_p1z} to z position of {partycles::loc} + cos({partycles::counter})
     set {_p1loc} to the location ({_p1x}, {_p1y}, {_p1z}) in world "world"
-    message "location: %{_p1loc}%" to offlineplayer("fwfy")
-    play 5 ({partycles::type} parsed as visual effect) at {_p1loc} 
+
+    set {_p2x} to x position of {partycles::loc} - sin({partycles::counter})
+    set {_p2y} to y position of {partycles::loc} - sin({partycles::counter})
+    set {_p2z} to z position of {partycles::loc} - cos({partycles::counter})
+    set {_p2loc} to the location ({_p2x}, {_p2y}, {_p2z}) in world "world"
+
+    #message "location: %{_p1loc}%" to offlineplayer("fwfy")
+    play 1 ({partycles::type} parsed as visual effect) at {_p1loc} 
+    play 1 ({partycles::type} parsed as visual effect) at {_p2loc} 
 
 command /partycles <boolean>:
   permission: skript.admin
