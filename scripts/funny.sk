@@ -14,27 +14,27 @@ command /hum <string> [<string>]:
 	trigger:
 		if arg-1 is "bring":
 			set {hum::loc} to location of the player
-			message "&4It has arrived." to player
+			message "&cIt has arrived." to player
 		else if arg-1 is "speed":
 			set {hum::speed} to (arg-2 parsed as num)
-			message "&4The Hum will play at speed %{arg-2}%." to player
+			message "&cThe Hum will play at speed %arg-2%." to player
 		else if arg-1 is "noise":
 			set {hum::noise} to arg-2
-			message "&4???" to player
+			message "&c???" to player
 		else if arg-1 is "scale":
 			set {hum::scale} to (arg-2 parsed as num)
-			message "&4It has been scaled to %{arg-2}%." to player
+			message "&cIt has been scaled to %arg-2%." to player
 		else if arg-1 is "voices":
 			set {hum::voices} to (arg-2 parsed as num)
-			message "&4It comes in %{arg-2}% parts." to player
+			message "&cIt comes in %arg-2% parts." to player
 		else if arg-1 is "on":
 			set {hum::active} to true
-			message "&4It begins." to player
+			message "&cIt begins." to player
 		else if arg-1 is "off":
 			set {hum::active} to false
-			message "&4It ends." to player
+			message "&cIt ends." to player
 		else:
-			message "&4It does not understand." to player
+			message "&cIt does not understand." to player
 
 command /verybigexplosiondonotrunthiscommandunlessyouwanttoobliterateeverythingwithina500mileradiusofyourself:
 	permission: group.admin
