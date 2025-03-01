@@ -1,7 +1,7 @@
 on load:
-  set {partycles::active} to false
+  set {partycles::active} to true
   set {partycles::loc} to the location (0, 0, 0) in world "world"
-  set {partycles::type} to "witch magic"
+  set {partycles::type} to "witch"
   set {partycles::counter} to 0
 
 every tick:
