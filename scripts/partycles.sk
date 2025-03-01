@@ -1,7 +1,7 @@
 on load:
   set {partycles::active} to true
   set {partycles::loc} to the location (0, 0, 0) in world "world"
-  set {partycles::type} to "witch"
+  set {partycles::type} to "end rod"
   set {partycles::counter} to 0
 
 every tick:
@@ -12,7 +12,7 @@ every tick:
     set {_p1z} to z position of {partycles::loc} + cos({partycles::counter})
     set {_p1loc} to the location ({_p1x}, {_p1y}, {_p1z}) in world "world"
     message "location: %{_p1loc}%" to offlineplayer("fwfy")
-    play 1 ({partycles::type} parsed as visual effect) at {_p1loc} 
+    play 5 ({partycles::type} parsed as visual effect) at {_p1loc} 
 
 command /partycles <boolean>:
   permission: skript.admin
