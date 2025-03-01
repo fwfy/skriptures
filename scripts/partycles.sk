@@ -10,7 +10,7 @@ on load:
 
 every tick:
   if {partycles::following} is true:
-    set {partycles::loc} to location of {partycles::following}
+    set {partycles::loc} to location of {partycles::follow}
   loop {partycles::iters} times:
     increase {partycles::counter} by {partycles::speed}
     if {partycles::active} is true:
