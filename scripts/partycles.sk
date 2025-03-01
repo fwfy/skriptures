@@ -57,6 +57,6 @@ command /partycles [<text>] [<text>]:
     else if arg-1 is "debug":
       message "&6&lCurrent Partycles State:"
       loop {partycles::*}:
-        message "  &b- &a%loop-index%:&r %loop-value%"
+        message "  &b- &a%loop-index%:&r %loop-value% &d[Type: &r%type of loop-value%&d]"
     else:
       message "&cUnknown subcommand '%arg-1%'. Valid subcommands are: active (true/false), bring, type (particle name), iters (number), speed (number), follow (off OR playername)" to player
