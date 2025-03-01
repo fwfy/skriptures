@@ -32,6 +32,7 @@ command /partycles [<text>] [<text>]:
       message "&aActive set to &l%arg-2%&r&a."
     else if arg-1 is "bring":
       set {partycles::loc} to the location of the player
+      message "&c%location of the player%"
       message "&aLocation updated."
     else if arg-1 is "type":
       set {partycles::type} to arg-2
