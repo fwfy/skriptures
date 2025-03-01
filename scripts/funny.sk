@@ -34,8 +34,10 @@ command /hum <string> [<string>]:
 			set {hum::active} to false
 			message "&cIt ends." to player
 		else if arg-1 is "debugme":
+			set {hum::debugplayer} to player
+			message "&6Current &4&lHUM&r&6 settings:"
 			loop {hum::*}:
-				message "&d%loop-index%: %loop-value%" to player
+				message "&d%loop-index%:&r %loop-value%" to player
 		else:
 			message "&cIt does not understand." to player
 
@@ -99,7 +101,7 @@ every tick:
 			set {_pitch} to {hum::scale}*(sin({hum::tick_counter}))+(loop-value/{hum::voices})
 			play sound {hum::noise} with volume 0.5 with pitch {_pitch} from {hum::loc}
 			if {hum::voices} is 1.8:
-				message "&d&lPITCH: %{_pitch}%"
+				message "&d&lPITCH: %{_pitch}%" to {hum::debugplayer}
 		
 
 every 10 ticks:
