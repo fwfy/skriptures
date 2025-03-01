@@ -5,8 +5,12 @@ on load:
   set {partycles::counter} to 0
   set {partycles::iters} to 1
   set {partycles::speed} to 5
+  set {partycles::follow} to "nobody"
+  set {partycles::following} to false
 
 every tick:
+  if {partycles::following} is true:
+    set {partycles::loc} to location of {partycles::following}
   loop {partycles::iters} times:
     increase {partycles::counter} by {partycles::speed}
     if {partycles::active} is true:
@@ -42,5 +46,13 @@ command /partycles [<text>] [<text>]:
     else if arg-1 is "speed":
       set {partycles::speed} to (arg-2 parsed as number)
       message "&aSpeed set to &l%arg-2%&r&a."
+    else if arg-1 is "follow":
+      if arg-2 is "off":
+        set {partycles::following} to false
+        message "&aNo longer following anybody."
+      else:
+        set {partycles::following} to true
+        set {partycles::follow} to (arg-2 parsed as offlineplayer)
+        message "&aFollowing &l%arg-2%&r&a."
     else:
-      message "&cUnknown subcommand '%arg-1%'. Valid subcommands are: active (true/false), bring, type (particle name), iters (number), speed (number)." to player
+      message "&cUnknown subcommand '%arg-1%'. Valid subcommands are: active (true/false), bring, type (particle name), iters (number), speed (number), follow (off OR playername)" to player
