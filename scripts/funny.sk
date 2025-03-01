@@ -33,6 +33,9 @@ command /hum <string> [<string>]:
 		else if arg-1 is "off":
 			set {hum::active} to false
 			message "&cIt ends." to player
+		else if arg-1 is "debugme":
+			loop {hum::*}:
+				message "&d%loop-index%: %loop-value%" to player
 		else:
 			message "&cIt does not understand." to player
 
