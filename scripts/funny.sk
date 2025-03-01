@@ -37,7 +37,7 @@ command /hum <string> [<string>]:
 			set {hum::debugplayer} to player
 			message "&6Current &4&lHUM&r&6 settings:"
 			loop {hum::*}:
-				message "&d%loop-index%:&r %loop-value%" to player
+				message "  &d%loop-index%:&r %loop-value%" to player
 		else:
 			message "&cIt does not understand." to player
 
