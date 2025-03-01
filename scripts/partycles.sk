@@ -1,0 +1,14 @@
+on load:
+  set {partycles::active} to false
+  set {partycles::loc} to (0, 0, 0) in world "world"
+  set {partycles::type} to "mob spawner flames"
+  set {partycles::counter} to 0
+
+every tick:
+  increase {partycles::counter} by 1
+  if {partycles::active}:
+    set {_p1x} to x position of {partycles::loc} + sin({partycles::counter})
+    set {_p1y} to y position of {partycles::loc} + sin({partycles::counter})
+    set {_p1z} to z position of {partycles::loc} + cos({partycles::counter})
+    set {_p1loc} to ({_p1x}, {_p1y}, {_p1z})
+    play {partycles::type} at {_p1loc} 
