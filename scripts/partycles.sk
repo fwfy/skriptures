@@ -10,8 +10,7 @@ on load:
 
 every tick:
   if {partycles::following} is true:
-    set {partycles::loc} to location of offlineplayer({partycles::following})
-    message "You are being followed by partycles! %location of offlineplayer({partycles::following})%" to offlineplayer({partycles::following})
+    set {partycles::loc} to location of ({partycles::following} parsed as offlineplayer)
   loop {partycles::iters} times:
     increase {partycles::counter} by {partycles::speed}
     if {partycles::active} is true:
