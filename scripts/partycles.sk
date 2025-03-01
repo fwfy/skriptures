@@ -54,5 +54,9 @@ command /partycles [<text>] [<text>]:
         set {partycles::following} to true
         set {partycles::follow} to (arg-2 parsed as offlineplayer)
         message "&aFollowing &l%arg-2%&r&a."
+    else if arg-1 is "debug":
+      message "&6&lCurrent Partycles State:"
+      loop {partycles::*}:
+        message "  &b- &a%loop-index%:&r %loop-value%"
     else:
       message "&cUnknown subcommand '%arg-1%'. Valid subcommands are: active (true/false), bring, type (particle name), iters (number), speed (number), follow (off OR playername)" to player
