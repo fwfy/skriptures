@@ -98,7 +98,7 @@ every tick:
 	set {hum::tick_counter} to {hum::tick_counter}+{hum::speed}
 	if {hum::active} is true:
 		loop {hum::voices} times:
-			set {_pitch} to {hum::scale}*(sin({hum::tick_counter}))+(loop-value/{hum::voices})
+			set {_pitch} to {hum::scale}*(sin({hum::tick_counter}))+(loop-value/{hum::voices})+0.5
 			play sound {hum::noise} with volume 0.5 with pitch {_pitch} from {hum::loc}
 			if {hum::voices} is 1.8:
 				message "&d&lPITCH: %{_pitch}%" to {hum::debugplayer}
