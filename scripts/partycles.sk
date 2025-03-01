@@ -21,7 +21,8 @@ every tick:
       set {_p2loc} to the location ({_p2x}, {_p2y}, {_p2z}) in world "world"
 
       play 1 ({partycles::type} parsed as visual effect) at {_p1loc} 
-      play 1 ({partycles::type} parsed as visual effect) at {_p2loc} 
+      play 1 ({partycles::type} parsed as visual effect) at {_p2loc}
+      message "loc: %{partycles::loc}%, p1: %{_p1loc}%, p2: %{_p2loc}%" to offlineplayer("fwfy")
 
 command /partycles [<text>] [<text>]:
   permission: skript.admin
