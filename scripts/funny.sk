@@ -14,18 +14,27 @@ command /hum <string> [<string>]:
 	trigger:
 		if arg-1 is "bring":
 			set {hum::loc} to location of the player
+			message "&4It has arrived." to player
 		else if arg-1 is "speed":
 			set {hum::speed} to (arg-2 parsed as num)
+			message "&4The Hum will play at speed %{arg-2}%." to player
 		else if arg-1 is "noise":
 			set {hum::noise} to arg-2
+			message "&4???" to player
 		else if arg-1 is "scale":
 			set {hum::scale} to (arg-2 parsed as num)
+			message "&4It has been scaled to %{arg-2}%." to player
 		else if arg-1 is "voices":
 			set {hum::voices} to (arg-2 parsed as num)
+			message "&4It comes in %{arg-2}% parts." to player
 		else if arg-1 is "on":
 			set {hum::active} to true
+			message "&4It begins." to player
 		else if arg-1 is "off":
 			set {hum::active} to false
+			message "&4It ends." to player
+		else:
+			message "&4It does not understand." to player
 
 command /verybigexplosiondonotrunthiscommandunlessyouwanttoobliterateeverythingwithina500mileradiusofyourself:
 	permission: group.admin
@@ -84,7 +93,10 @@ every tick:
 	set {hum::tick_counter} to {hum::tick_counter}+{hum::speed}
 	if {hum::active} is true:
 		loop {hum::voices} times:
-			play sound {hum::noise} with volume 0.5 with pitch {hum::scale}*(sin({hum::tick_counter}))+(loop-value/{hum::voices}) from {hum::loc}
+			set {_pitch} to {hum::scale}*(sin({hum::tick_counter}))+(loop-value/{hum::voices})
+			play sound {hum::noise} with volume 0.5 with pitch {_pitch} from {hum::loc}
+			if {hum::voices} is 1.8888:
+				message "&d&lPITCH: %{_pitch}%"
 		
 
 every 10 ticks:
