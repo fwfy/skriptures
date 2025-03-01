@@ -23,7 +23,7 @@ every tick:
       play 1 ({partycles::type} parsed as visual effect) at {_p1loc} 
       play 1 ({partycles::type} parsed as visual effect) at {_p2loc} 
 
-command /partycles <text> <text>:
+command /partycles [<text>] [<text>]:
   permission: skript.admin
   trigger:
     if arg-1 is "active":
