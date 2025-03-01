@@ -11,6 +11,7 @@ on load:
 every tick:
   if {partycles::following} is true:
     set {partycles::loc} to location of offlineplayer({partycles::following})
+    message "You are being followed by partycles! %location of offlineplayer({partycles::following})%" to offlineplayer({partycles::following})
   loop {partycles::iters} times:
     increase {partycles::counter} by {partycles::speed}
     if {partycles::active} is true:
@@ -57,6 +58,6 @@ command /partycles [<text>] [<text>]:
     else if arg-1 is "debug":
       message "&6&lCurrent Partycles State:"
       loop {partycles::*}:
-        message "  &b- &a%loop-index%:&r %loop-value% &d[Type: &r%type of loop-value%&d]"
+        message "  &b- &a%loop-index%:&r %loop-value%"
     else:
       message "&cUnknown subcommand '%arg-1%'. Valid subcommands are: active (true/false), bring, type (particle name), iters (number), speed (number), follow (off OR playername)" to player
