@@ -5,6 +5,8 @@ on load:
   set {partycles::counter} to 0
   set {partycles::iters} to 1
   set {partycles::speed} to 5
+  set {partycles::height} to 1
+  set {partycles::width} to 1
   set {partycles::follow} to "nobody"
   set {partycles::following} to false
 
@@ -14,14 +16,14 @@ every tick:
   loop {partycles::iters} times:
     increase {partycles::counter} by {partycles::speed}
     if {partycles::active} is true:
-      set {_p1x} to x position of {partycles::loc} + sin({partycles::counter})
-      set {_p1y} to y position of {partycles::loc} + sin({partycles::counter}/5)
-      set {_p1z} to z position of {partycles::loc} + cos({partycles::counter})
+      set {_p1x} to x position of {partycles::loc} + (sin({partycles::counter})*{partycles::width})
+      set {_p1y} to y position of {partycles::loc} + (sin({partycles::counter}/5)*{partycles::height})
+      set {_p1z} to z position of {partycles::loc} + (cos({partycles::counter})*{partycles::width})
       set {_p1loc} to the location ({_p1x}, {_p1y}, {_p1z}) in world (world of {partycles::loc})
 
-      set {_p2x} to x position of {partycles::loc} - sin({partycles::counter})
-      set {_p2y} to y position of {partycles::loc} - sin({partycles::counter}/5)
-      set {_p2z} to z position of {partycles::loc} - cos({partycles::counter})
+      set {_p2x} to x position of {partycles::loc} - (sin({partycles::counter})*{partycles::width})
+      set {_p2y} to y position of {partycles::loc} - (sin({partycles::counter}/5)*{partycles::height})
+      set {_p2z} to z position of {partycles::loc} - (cos({partycles::counter})*{partycles::width})
       set {_p2loc} to the location ({_p2x}, {_p2y}, {_p2z}) in world (world of {partycles::loc})
 
       play 1 ({partycles::type} parsed as visual effect) at {_p1loc} 
@@ -46,6 +48,12 @@ command /partycles [<text>] [<text>]:
     else if arg-1 is "speed":
       set {partycles::speed} to (arg-2 parsed as number)
       message "&aSpeed set to &l%arg-2%&r&a."
+    else if arg-1 is "width":
+      set {partycles::width} to (arg-2 parsed as number)
+      message "&aSpeed set to &l%arg-2%&r&a."
+    else if arg-1 is "height":
+      set {partycles::height} to (arg-2 parsed as number)
+      message "&aSpeed set to &l%arg-2%&r&a."
     else if arg-1 is "follow":
       if arg-2 is "off":
         set {partycles::following} to false
@@ -59,4 +67,4 @@ command /partycles [<text>] [<text>]:
       loop {partycles::*}:
         message "  &b- &a%loop-index%:&r %loop-value%"
     else:
-      message "&cUnknown subcommand '%arg-1%'. Valid subcommands are: active (true/false), bring, type (particle name), iters (number), speed (number), follow (off OR playername)" to player
+      message "&cUnknown subcommand '%arg-1%'. Valid subcommands are: active (true/false), bring, type (particle name), iters (number), speed (number), follow (off OR playername), width (number), height (number)." to player
