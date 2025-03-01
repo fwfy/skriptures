@@ -15,9 +15,9 @@ every tick:
       set {_p1z} to z position of {partycles::loc} + cos({partycles::counter})
       set {_p1loc} to the location ({_p1x}, {_p1y}, {_p1z}) in world "world"
 
-      set {_p2x} to x position of {partycles::loc} - sin({partycles::counter})
-      set {_p2y} to y position of {partycles::loc} - sin({partycles::counter}/5)
-      set {_p2z} to z position of {partycles::loc} - cos({partycles::counter})
+      set {_p2x} to x position of {partycles::loc} + cos({partycles::counter})
+      set {_p2y} to y position of {partycles::loc} + cos({partycles::counter}/5)
+      set {_p2z} to z position of {partycles::loc} + sin({partycles::counter})
       set {_p2loc} to the location ({_p2x}, {_p2y}, {_p2z}) in world "world"
 
       play 1 ({partycles::type} parsed as visual effect) at {_p1loc} 
