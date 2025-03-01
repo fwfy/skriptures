@@ -10,7 +10,7 @@ on load:
 
 every tick:
   if {partycles::following} is true:
-    set {partycles::loc} to location of ({partycles::following} parsed as player)
+    set {partycles::loc} to location of {partycles::following}
   loop {partycles::iters} times:
     increase {partycles::counter} by {partycles::speed}
     if {partycles::active} is true:
@@ -52,7 +52,7 @@ command /partycles [<text>] [<text>]:
         message "&aNo longer following anybody."
       else:
         set {partycles::following} to true
-        set {partycles::follow} to arg-2
+        set {partycles::follow} to (arg-2 parsed as player)
         message "&aFollowing &l%arg-2%&r&a."
     else if arg-1 is "debug":
       message "&6&lCurrent Partycles State:"
