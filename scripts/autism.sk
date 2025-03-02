@@ -1,0 +1,3 @@
+on arrow pickup:
+  if arrow is on fire:
+    hurt the player
