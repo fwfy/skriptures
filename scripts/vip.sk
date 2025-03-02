@@ -55,12 +55,12 @@ on damage by player:
 			cancel event
 			message "&4yoy cant" to attacker
 	if attacker is holding a kelp named "&6&l[&e&lVIP&6&l]&6 Funny Kelp":
-		if attacker has permission "group.vip":
-			if block 1 under victim is air and type of victim player:
-				cancel event
-			else:
-				push victim up at speed 0.25
-				cancel event
+		#if attacker has permission "group.vip":
+		if block 1 under victim is air and type of victim player:
+			cancel event
+		else:
+			push victim up at speed 0.25
+			cancel event
 	if attacker is holding a bone named "&6&l[&e&lVIP&6&l]&6 Deboner":
 		if victim is a skeleton:
 			set tool of victim to stick
