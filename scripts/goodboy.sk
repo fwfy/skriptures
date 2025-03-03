@@ -1,0 +1,3 @@
+on hurt of wolf:
+  cancel event
+  damage attacker
