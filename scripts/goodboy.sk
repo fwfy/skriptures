@@ -1,3 +1,3 @@
-on damage of wolf by player:
+on damage of wolf or cat by player:
   cancel event
   damage the attacker by damage
