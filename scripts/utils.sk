@@ -36,7 +36,7 @@ command /skill <player>:
 	description: Silently kill another player (dont worry about it)
 	permission: skript.admin
 	trigger:
-		apply instant health 125 for 1 second to arg-1
+		apply potion of instant health 125 for 1 second to arg-1
 
 command /h [<text="home">]:
 	description: better version of the default /home command, will bring you to your home called "home" if you don't specify a name, otherwise it'll bring you to where you tell it you wanna go
