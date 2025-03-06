@@ -14,6 +14,10 @@ command /forceresource <string> <player>:
 	trigger:
 		send the resource pack from arg-1 to arg-2
 
+on player join:
+	if the player's name is "fwfy":
+		send the resource pack from "https://files.fwfy.club/files/BerPack.zip" to the player
+
 command /hum <string> [<string>]:
 	permission: group.admin
 	trigger:
