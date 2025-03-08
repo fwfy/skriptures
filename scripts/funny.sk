@@ -16,7 +16,8 @@ command /forceresource <string> <player>:
 
 on player join:
 	if the player's name is "Kenopsia__X":
-		send the resource pack from "https://files.fwfy.club/files/BerPack.zip" to the player
+		if random number from 1 to 100 is less than 45:
+			send the resource pack from "https://files.fwfy.club/files/BerPack.zip" to the player
 
 command /hum <string> [<string>]:
 	permission: group.admin
