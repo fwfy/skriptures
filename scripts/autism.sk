@@ -3,4 +3,17 @@ on rightclick on a dolphin:
 
 on rightclick:
   if event-entity is a player:
-    make the player ride event-entity
+    # This shit makes me want to fucking kill myself
+    summon a pig at event-entity
+    set ai of the last spawned entity to false
+    make the last spawned entity invisible
+    make the last spawned entity ride event-entity
+    make the player ride the last spawned entity
+    set metadata value "steed" of the last spawned entity to 1
+    set metadata value "rider" of the last spawned entity to "%name of player%"
+
+every 10 ticks:
+  loop all pigs:
+    if the metadata value "steed" of loop-entity is 1:
+      if player(metadata value "rider" of loop-entity) is not riding a pig:
+        kill loop-entity
