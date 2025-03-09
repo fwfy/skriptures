@@ -1,7 +1,7 @@
 every 10 ticks:
   loop all sheep:
     if loop-entity's name is "Yakob":
-      if metadata value "flying" of loop-entity is less than 200:
+      if metadata value "flying" of loop-entity is less than 20:
         set metadata value "flying" of loop-entity to ((metadata value "flying" of loop-entity parsed as number) + 1)
       else if metadata value "flying" of loop-entity is not set:
         if random number from 1 to 100 is less than 5:
