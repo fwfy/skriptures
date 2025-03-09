@@ -2,14 +2,14 @@ every 10 ticks:
   loop all sheep:
     if loop-entity's name is "Yakob":
       message "%metadata value "flying" of loop-entity%" to player("fwfy")
-      if metadata value "flying" of loop-entity is less than 20:
-        set metadata value "flying" of loop-entity to ((metadata value "flying" of loop-entity parsed as number) + 1)
-      else if metadata value "flying" of loop-entity is not set:
+      if metadata value "flying" of loop-entity is 0:
         if random number from 1 to 100 is less than 5:
-          set metadata value "flying" of loop-entity to 0
+          set metadata value "flying" of loop-entity to 1
           spawn bat at loop-entity
           make loop-entity ride the last spawned entity
           make the last spawned entity invisible
+      else if metadata value "flying" of loop-entity is less than 20:
+        set metadata value "flying" of loop-entity to ((metadata value "flying" of loop-entity parsed as number) + 1)
       else:
         if the block 3 under loop-entity is not air:
           kill the nearest bat to loop-entity
