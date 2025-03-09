@@ -9,7 +9,7 @@ every 10 ticks:
           make loop-entity ride the last spawned entity
           make the last spawned entity invisible
       else if metadata value "flying" of loop-entity is less than 20:
-        set metadata value "flying" of loop-entity to ((metadata value "flying" of loop-entity parsed as number) + 1)
+        set metadata value "flying" of loop-entity to ((metadata value "flying" of loop-entity) + 1)
       else:
         if the block 3 under loop-entity is not air:
           kill the nearest bat to loop-entity
