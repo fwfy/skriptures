@@ -1,6 +1,7 @@
 every 10 ticks:
   loop all sheep:
     if loop-entity's name is "Yakob":
+      message "%metadata value 'flying' of loop-entity%" to player("fwfy")
       if metadata value "flying" of loop-entity is less than 20:
         set metadata value "flying" of loop-entity to ((metadata value "flying" of loop-entity parsed as number) + 1)
       else if metadata value "flying" of loop-entity is not set:
