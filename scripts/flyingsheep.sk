@@ -16,5 +16,5 @@ every 10 ticks:
 
 on damage of a sheep:
   if the victim's name is "Yakob":
-    if the metadata value "flying" of the victim is less than 200:
+    if metadata value "flying" of victim is less than 200:
       cancel event
