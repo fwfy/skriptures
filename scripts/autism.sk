@@ -1,3 +1,2 @@
-on arrow pickup:
-  if arrow is on fire:
-    hurt the player
+on rightclick on a dolphin:
+  make the player ride event-entity
