@@ -13,3 +13,8 @@ every 10 ticks:
         if block 1 under loop-entity is not air:
           kill the nearest bat to loop-entity
           clear metadata value "flying" of loop-entity
+
+on damage of a sheep:
+  if the victim's name is "Yakob":
+    if the metadata value "flying" of the victim is less than 500:
+      cancel event
