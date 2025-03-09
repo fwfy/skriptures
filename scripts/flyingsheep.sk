@@ -21,6 +21,6 @@ on damage of a sheep:
     if metadata value "flying" of victim is greater than 0:
       cancel event
 
-on damage of a bat:
+on damage:
   if metadata value "steed" of victim is 1:
     cancel event
