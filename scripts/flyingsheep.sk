@@ -1,0 +1,15 @@
+every 10 ticks:
+  loop all sheep:
+    if loop-entity's name is "Yakob":
+      if metadata value "flying" of loop-entity is less than 500:
+        add 1 to metadata value "flying" of loop-entity
+      else if metadata value "flying" of loop-entity is not set:
+        if random number from 1 to 100 is less than 5:
+          set metadata value "flying" of loop-entity to 0
+          spawn bat at loop-entity
+          make loop-entity ride the last spawned entity
+          make the last spawned entity invisible
+      else:
+        if block 1 under loop-entity is not air:
+          kill the nearest bat to loop-entity
+          clear metadata value "flying" of loop-entity
