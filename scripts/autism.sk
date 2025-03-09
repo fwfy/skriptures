@@ -1,5 +1,6 @@
 on rightclick on a dolphin:
   make the player ride event-entity
 
-on rightclick of a player:
-  make the player ride event-entity
+on rightclick:
+  if event-entity is a player:
+    make the player ride event-entity
