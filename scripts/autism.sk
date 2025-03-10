@@ -13,7 +13,7 @@ on rightclick on a player:
 
 every 10 ticks:
   loop all pigs:
-    if the metadata value "steed" of loop-entity is 1:
+    if metadata value "steed" of loop-entity is 1:
       if player(metadata value "rider" of loop-entity) is not riding a pig:
         kill loop-entity
       if metadata value "rider" of loop-entity is not set:
