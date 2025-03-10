@@ -21,6 +21,13 @@ on damage of a sheep:
     if metadata value "flying" of victim is greater than 0:
       cancel event
 
+command /rsteed:
+  permission: skript.admin
+  trigger:
+    loop all entities:
+      if metadata value "steed" of loop-entity is 1:
+        message "%loop-entity%"
+
 on damage:
   if metadata value "steed" of victim is 1:
     cancel event
