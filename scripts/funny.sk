@@ -112,13 +112,6 @@ every tick:
 			play sound {hum::noise} with volume 0.5 with pitch {_pitch} from {hum::loc}
 			if {hum::voices} is 1.8:
 				message "&d&lPITCH: %{_pitch}%" to {hum::debugplayer}
-		
-
-every 10 ticks:
-	if {huevo::blink} is true:
-		execute the command "/team modify huevo color red"
-		wait 5 ticks
-		execute the command "/team modify huevo color dark_red"
 
 on spawn of a skeleton:
 	if random number from 0 to 100 is less than 10:
