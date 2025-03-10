@@ -17,3 +17,5 @@ every 10 ticks:
     if the metadata value "steed" of loop-entity is 1:
       if player(metadata value "rider" of loop-entity) is not riding a pig:
         kill loop-entity
+      if metadata value "rider" of loop-entity is not set:
+        kill loop-entity
