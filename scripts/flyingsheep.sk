@@ -26,7 +26,7 @@ command /rsteed:
   trigger:
     loop all entities:
       if metadata value "steed" of loop-entity is 1:
-        message "%loop-entity%"
+        kill loop-entity
 
 on damage:
   if metadata value "steed" of victim is 1:
