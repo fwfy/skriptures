@@ -32,12 +32,6 @@ command /forceact <string> <player> [<player>]:
 		else if arg-1 is "ride":
 			force arg-2 to ride arg-3
 
-command /skill <player>:
-	description: Silently kill another player (dont worry about it)
-	permission: skript.admin
-	trigger:
-		apply potion of health 125 for 1 second to arg-1
-
 command /h [<text="home">]:
 	description: better version of the default /home command, will bring you to your home called "home" if you don't specify a name, otherwise it'll bring you to where you tell it you wanna go
 	trigger:
