@@ -1,4 +1,4 @@
 every 10 ticks:
   loop all pigs:
     if loop-entity's name is "John":
-      make loop-entity pathfind towards the nearest player
+      make loop-entity pathfind towards (0, 0, 0)
