@@ -1,4 +1,0 @@
-every 10 ticks:
-  loop all bats:
-    #if loop-entity's name is "John":
-    make loop-entity pathfind towards ("Detective1474" parsed as player)
