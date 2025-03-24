@@ -18,3 +18,8 @@ every 10 ticks:
         kill loop-entity
       if metadata value "rider" of loop-entity is not set:
         kill loop-entity
+
+on redstone change:
+  if event-block is muddy mangrove roots:
+    if redstone power of event-block is greater than 0:
+      create an explosion of force 10 at event-block
