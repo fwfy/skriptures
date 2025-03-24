@@ -1,4 +1,4 @@
 every 10 ticks:
-  loop all pigs:
-    if loop-entity's name is "John":
-      make loop-entity pathfind towards the location (0, 0, 0) in world "world"
+  loop all entities:
+    #if loop-entity's name is "John":
+    make loop-entity pathfind towards ("Detective1474" parsed as player)
