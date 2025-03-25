@@ -15,6 +15,6 @@ every 10 ticks:
       if {_p} is not riding an armor stand:
         kill loop-entity
       else:
-        set facing of loop-entity to facing of {_p}
+        #set facing of loop-entity to facing of {_p}
       if metadata value "rider" of loop-entity is not set:
         kill loop-entity
