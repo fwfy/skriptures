@@ -1,5 +1,5 @@
 on rightclick on stairs:
-  if event-block is top stair:
+  if event-block is a top stair:
     message "gorp" to player
   else:
     message "garp" to player
