@@ -4,8 +4,7 @@ on rightclick on any stairs:
   set is visible of {_entity} to false
   make player ride {_entity}
   while {_entity} exists:
-    if player is sneaking:
-      eject any passenger of {_entity}
+    if player isn't riding {_entity}:
       wait 2 ticks
       delete {_entity}
-    wait 5 tick
+    wait 5 ticks
