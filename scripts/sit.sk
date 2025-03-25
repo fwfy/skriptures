@@ -1,7 +1,7 @@
 on rightclick on any stairs:
   spawn armor stand at location below event-block
   set {_entity} to last spawned entity
-  set is visible of {_entity} to false
+  make {_entity} invisible
   make player ride {_entity}
   while {_entity} exists:
     if player isn't riding {_entity}:
