@@ -1,5 +1,5 @@
 on rightclick on any stairs:
-  spawn armor stand at location below event-block
+  spawn armor stand at location 1.5 below event-block
   set metadata value "steed" of the last spawned entity to 1
   set metadata value "rider" of the last spawned entity to name of the player
   set ai of the last spawned entity to false
