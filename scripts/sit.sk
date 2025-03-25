@@ -1,5 +1,5 @@
 on rightclick on stairs:
-  if event-block is facing up:
+  if event-block's facing is up:
     message "up farp"
   else:
     message "not up farp"
