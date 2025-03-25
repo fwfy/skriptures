@@ -1,5 +1,11 @@
-on rightclick on stairs:
-  if event-block is a top stair:
-    message "gorp" to player
-  else:
-    message "garp" to player
+on rightclick on any stairs:
+  spawn armor stand at location below event-block
+  set {_entity} to last spawned entity
+  set is visible of {_entity} to false
+  make player ride {_entity}
+  while {_entity} exists:
+    if player is sneaking:
+      eject any passenger of {_entity}
+      wait 2 ticks
+      delete {_entity}
+    wait 5 tick
