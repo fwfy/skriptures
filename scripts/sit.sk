@@ -1,12 +1,12 @@
 on rightclick on any stairs:
   spawn armor stand at location below event-block
+  set metadata value "steed" of the last spawned entity to 1
+  set metadata value "rider" of the last spawned entity to name of the player
   set ai of the last spawned entity to false
   set gravity of the last spawned entity to false
   make the last spawned entity invisible
   make the last spawned entity ride event-entity
   make the player ride the last spawned entity
-  set metadata value "steed" of the last spawned entity to 1
-  set metadata value "rider" of the last spawned entity to "%name of player%"
 
 every 10 ticks:
   loop all armor stands:
