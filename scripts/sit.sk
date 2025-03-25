@@ -1,0 +1,2 @@
+on rightclick on stairs:
+  message "farp" to player
