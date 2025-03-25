@@ -10,7 +10,10 @@ on rightclick on any stairs:
 every 10 ticks:
   loop all armor stands:
     if metadata value "steed" of loop-entity is 1:
-      if player(metadata value "rider" of loop-entity) is not riding an armor stand:
+      set {_p} to player(metadata value "rider" of loop-entity)
+      if {_p} is not riding an armor stand:
         kill loop-entity
+      else:
+        set facing of loop-entity to facing of {_p}
       if metadata value "rider" of loop-entity is not set:
         kill loop-entity
