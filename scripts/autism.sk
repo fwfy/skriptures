@@ -5,6 +5,11 @@ on rightclick on entity:
   if player is sneaking:
     make event-entity ride player
 
+on sneak toggle:
+  player is sneaking
+  entity is riding player
+  eject any passengers from player
+
 on rightclick on a player:
   # This shit makes me want to fucking kill myself
   summon a pig at event-entity
