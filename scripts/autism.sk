@@ -6,7 +6,8 @@ on rightclick on entity:
     make event-entity ride player
 
 on sneak toggle:
-  player is sneaking
+  wait 1 tick
+  if player is sneaking
   eject any passengers from player
 
 on rightclick on a player:
