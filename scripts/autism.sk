@@ -7,8 +7,8 @@ on rightclick on entity:
 
 on sneak toggle:
   wait 1 tick
-  if player is sneaking
-  eject any passengers from player
+  if player is sneaking:
+    eject any passengers from player
 
 on rightclick on a player:
   # This shit makes me want to fucking kill myself
