@@ -21,7 +21,7 @@ command /reboot:
 		wait for 1 second
 		restart server
 
-command /forceact <string> <player> [<entity>]:
+command /forceact <string> <entity> [<entity>]:
 	description: idk  
 	permission: skript.admin
 	trigger:
