@@ -7,7 +7,6 @@ on rightclick on entity:
 
 on sneak toggle:
   player is sneaking
-  entity is riding player
   eject any passengers from player
 
 on rightclick on a player:
