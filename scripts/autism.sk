@@ -1,6 +1,10 @@
 on rightclick on a dolphin:
   make the player ride event-entity
 
+on rightclick on entity:
+  if player is sneaking:
+    make event-entity ride player
+
 on rightclick on a player:
   # This shit makes me want to fucking kill myself
   summon a pig at event-entity
