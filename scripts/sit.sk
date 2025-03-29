@@ -1,3 +1,4 @@
+
 on rightclick on any stairs:
   if player is not holding anything:
     spawn armor stand at location 1.5 below event-block
