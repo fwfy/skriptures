@@ -18,6 +18,10 @@ command /ber:
 	trigger:
 		send the resource pack "https://fwfy.club/files/BerPack.zip" to the player
 
+command /unber:
+	trigger:
+		send the resource pack "https://fwfy.club/files/SMPack45.zip" to the player
+
 on player join:
 	if the player's name is "Kenopsia__X":
 		if random number from 1 to 100 is less than 45:
