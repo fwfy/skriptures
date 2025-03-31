@@ -6,4 +6,4 @@ command /_ <string> <player>:
       set {_p} to position of {_t}
       loop 60 times:
         loop 3 times:
-          play sound "block.note_block.harp" with volume 1 with pitch loop-value from {_p}
+          play sound "block.note_block.harp" with volume 1 with pitch loop-value-1 from {_p}
