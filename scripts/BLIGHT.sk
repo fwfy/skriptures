@@ -1,7 +1,7 @@
-command /_:
+command /_ <string> <player>:
   permission: group.default
   trigger:
     if arg-2 is "BLIGHT":
-      set {_t} to (arg-3 parsed as player)
+      set {_t} to arg-3
       loop 3 times:
         play sound "block.note_block.harp" with volume 1 with pitch loop-value from {_t}
