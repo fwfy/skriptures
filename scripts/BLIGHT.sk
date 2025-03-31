@@ -3,5 +3,6 @@ command /_ <string> <player>:
   trigger:
     if arg-2 is "BLIGHT":
       set {_t} to arg-3
+      set {_p} to position of {_t}
       loop 3 times:
-        play sound "block.note_block.harp" with volume 1 with pitch loop-value from {_t}
+        play sound "block.note_block.harp" with volume 1 with pitch loop-value from {_p}
