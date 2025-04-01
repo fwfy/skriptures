@@ -29,7 +29,7 @@ on join:
       wait 1 second
       set {_txt} to "&6Radar:&r"
       loop all players:
-        set {_spn} to "%{first letter of the player's name}%%{last letter of the player's name}%"
+        set {_spn} to "%{first letter of loop-player's name}%%{last letter of loop-player's name}%"
         set {_dist} to the distance between {_h} and the player
         if {_dist} is less than 500:
           set {_txt} to "%{_txt}%&2%{_spn}% "
