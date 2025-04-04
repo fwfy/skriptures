@@ -36,12 +36,11 @@ on join:
         if {_dist} is less than 50:
           set {_txt} to "%{_txt}%&4%{_spn}% "
         else if {_dist} is less than 125:
-            set {_txt} to "%{_txt}%&c%{_spn}% "
+          set {_txt} to "%{_txt}%&c%{_spn}% "
         else if {_dist} is less than 250:
-            set {_txt} to "%{_txt}%&e%{_spn}% "
+          set {_txt} to "%{_txt}%&e%{_spn}% "
         else if {_dist} is less than 500:
-            set {_txt} to "%{_txt}%&2%{_spn}% "
+          set {_txt} to "%{_txt}%&2%{_spn}% "
         else:
-            set {_txt} to "%{_txt}%&b%{_spn}% "
-
-      send action bar {_txt} to {_h}
+          set {_txt} to "%{_txt}%&b%{_spn}% "
+        send action bar {_txt} to {_h}
