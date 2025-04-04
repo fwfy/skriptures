@@ -32,7 +32,7 @@ on join:
         set {_first} to first character of {_name}
         set {_last} to last character of {_name}
         set {_spn} to "%{_first}%%{_last}%"
-        set {_dist} to the distance between {_h} and the player
+        set {_dist} to the distance between {_h} and loop-player
         if {_dist} is less than 50:
           set {_txt} to "%{_txt}%&4%{_spn}% "
         else if {_dist} is less than 125:
