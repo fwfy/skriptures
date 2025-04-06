@@ -13,4 +13,4 @@ on right click:
             set {_v} to {_v}*{_vM}
             set {_goal} to {_loc} ~ {_v}
             message "%{_goal}%" to the player
-            spawn particle flame at {_goal}
+            play 1 flame at {_goal}
