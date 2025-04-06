@@ -1,7 +1,6 @@
 command /alog <text> <text>:
 	permission: group.admin
 	trigger:
-		stop
 		loop all players:
 			if loop-player has permission "custom.alog":
 				message "&4&l[ALog (&r&b%arg-1%&4&l)]&r: %arg-2%" to loop-player
