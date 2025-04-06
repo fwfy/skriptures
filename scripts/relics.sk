@@ -33,7 +33,7 @@ every 5 ticks:
               set {_side} to {_dir} cross vector(0, 1, 0)
               set {_i} to ({_max}/2)*-1
               while {_i} < {_max}:
-                set {_offset} to {_side} multiplied by ({_i} / 5)
+                set {_offset} to {_side}*({_i} / 5)
                 add 2 to y component of {_offset}
                 set {_pos} to {_loc} ~ {_offset}
                 if {_i} < {_health}:
