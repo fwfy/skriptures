@@ -1,6 +1,7 @@
 # Stick of Sadness
 # suggested by Kenopsia
 
-on player right click holding a stick:
-  if the player's tool is named "&6Stick of Sadness":
-    message "%block the player is looking at%" to the player
+on player right click:
+  if the player is holding a stick:
+    if the player's tool is named "&6Stick of Sadness":
+      message "%block the player is looking at%" to the player
