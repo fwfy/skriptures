@@ -17,7 +17,7 @@ every 1 seconds:
 
 # Lifeseer
 # suggested by Nobody, i just felt like it lol
-
+ 
 every 5 ticks:
   loop all players:
     if loop-player is holding an emerald:
