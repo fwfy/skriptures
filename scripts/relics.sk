@@ -4,5 +4,5 @@
 on right click:
   if the player is holding a stick:
     if name of the player's tool is "&6Stick of Sadness":
-      loop all passive mobs:
+      loop all mobs:
         message "%loop-entity%" to the player
