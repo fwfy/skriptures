@@ -10,7 +10,7 @@ every 2 seconds:
             if distance between loop-entity-2 and loop-player-1 is less than 20:
               set {_loc} to location of loop-entity-2
               set {_v} to vector between loop-entity-2 and loop-player-1
-              set {_vM} to vector -1, 1, -1
+              set {_vM} to vector -5, 1, -5
               set {_v} to {_v}*{_vM}
               set {_goal} to {_loc} ~ {_v}
               play 1 flame at {_goal}
