@@ -32,6 +32,7 @@ every 5 ticks:
             apply nausea 1 to loop-player for 5 seconds
             # send action bar "&8The Lifeseer's Stone dims..." to loop-player
             stop
+          message {lifeseer::%{_id}%} to loop-player
           loop all mobs:
             if distance between loop-entity-2 and loop-player-1 is less than 20:
               set {_loc} to location of loop-entity-2
