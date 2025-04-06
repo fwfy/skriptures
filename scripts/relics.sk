@@ -18,7 +18,7 @@ every 1 seconds:
 # Lifeseer
 # suggested by Nobody, i just felt like it lol
 
-every 1 seconds:
+every 5 ticks:
   loop all players:
     if loop-player is holding an emerald:
       if name of loop-player's tool is "&6Lifeseer's Stone":
