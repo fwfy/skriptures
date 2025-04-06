@@ -33,7 +33,7 @@ every 5 ticks:
               set {_vv} to vector in horizontal direction of loop-player-1
               set {_dv} to {_dv} + {_vv}
               if {_i} < {_health}:
-                play 1 lime dust at {_loc} ~ {_dv}
+                play 1 flame at {_loc} ~ {_dv}
               else:
                 play 1 red dust at {_loc} ~ {_dv}
               add 1 to {_i}
