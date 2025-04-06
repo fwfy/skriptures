@@ -52,6 +52,8 @@ every 5 ticks:
                   play 1 red dust at {_pos}
                 add 1 to {_i}
         else:
-          delete {lifeseer::%uuid of loop-player%}
+          set {lifeseer::%uuid of loop-player%} to {lifeseer::%uuid of loop-player%} + 2
+          if {lifeseer::%uuid of loop-player%} > 40:
+            delete {lifeseer::%uuid of loop-player%}
 
 
