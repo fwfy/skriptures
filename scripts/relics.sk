@@ -30,7 +30,8 @@ every 5 ticks:
             set {_i} to ({_max}/2)*-1
             while {_i} < {_max}:
               set {_dv} to vector {_i}/5, 2, 0
-              rotate {_dv} around the global z axis by {_i}*5 degrees
+              set {_vv} to vector in horizontal direction of player
+              set {_dv} to {_dv} + {_vv}
               if {_i} < {_health}:
                 play 1 lime dust at {_loc} ~ {_dv}
               else:
