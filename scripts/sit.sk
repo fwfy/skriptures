@@ -1,6 +1,5 @@
-
 on right click:
-  if player is looking at stairs:
+  if event-block is stairs:
     if player's tool is empty:
       spawn armor stand at location 1.5 below event-block
       set metadata value "steed" of the last spawned entity to 1
