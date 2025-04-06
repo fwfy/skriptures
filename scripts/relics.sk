@@ -27,7 +27,7 @@ every 5 ticks:
           # Cooldown check
           if {lifeseer::%{_id}%} is not set:
             set {lifeseer::%{_id}%} to now
-          set {_elapsed} to difference between now and {lifeseer::%{_id}%} in seconds
+          set {_elapsed} to (now parsed as int) - {lifeseer::%{_id}%}
           if {_elapsed} > 10:
             apply nausea 1 to loop-player for 5 seconds
             # send action bar "&8The Lifeseer's Stone dims..." to loop-player
