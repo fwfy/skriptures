@@ -22,8 +22,8 @@ every 5 ticks:
   loop all players:
     if loop-player is holding an emerald:
       if name of loop-player's tool is "&6Lifeseer's Stone":
-        if loop-player is sneaking and line of sight of loop-player contains loop-entity-2:
         loop all mobs:
+          if loop-player is sneaking and line of sight of loop-player contains loop-entity-2:
             if distance between loop-entity-2 and loop-player-1 is less than 20:
               set {_loc} to location of loop-entity-2
               set {_max} to the max health of loop-entity-2
