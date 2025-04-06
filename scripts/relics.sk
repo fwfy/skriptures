@@ -1,7 +1,7 @@
 # Stick of Sadness
 # suggested by Kenopsia
 
-every 2 seconds:
+every 1 seconds:
   loop all players:
     if loop-player is holding a stick:
       if name of loop-player's tool is "&6Stick of Sadness":
