@@ -22,8 +22,17 @@ every 5 ticks:
   loop all players:
     if loop-player is holding an emerald:
       if name of loop-player's tool is "&6Lifeseer's Stone":
-        loop all mobs:
-          if loop-player-1 is sneaking:
+        if loop-player-1 is sneaking:
+          set {_id} to uuid of loop-player
+          # Cooldown check
+          if {lifeseer::%{_id}%} is not set:
+            set {lifeseer::%{_id}%} to now
+          set {_elapsed} to difference between now and {lifeseer::%{_id}%} in seconds
+          if {_elapsed} > 10:
+            apply nausea 1 to loop-player for 5 seconds
+            # send action bar "&8The Lifeseer's Stone dims..." to loop-player
+            stop
+          loop all mobs:
             if distance between loop-entity-2 and loop-player-1 is less than 20:
               set {_loc} to location of loop-entity-2
               set {_max} to the max health of loop-entity-2
@@ -41,3 +50,7 @@ every 5 ticks:
                 else:
                   play 1 red dust at {_pos}
                 add 1 to {_i}
+        else:
+          delete {lifeseer::%uuid of loop-player%}
+
+
