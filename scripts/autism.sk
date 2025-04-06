@@ -18,7 +18,7 @@ on rightclick on a player:
   make the last spawned entity ride event-entity
   make the player ride the last spawned entity
   set metadata value "steed" of the last spawned entity to 1
-  set metadata value "rider" of the last spawned entity to "%name of player%"
+  set metadata value "rider" of the last spawned entity to name of player
 
 every 10 ticks:
   loop all pigs:
