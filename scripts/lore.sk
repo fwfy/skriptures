@@ -6,6 +6,6 @@ on drop:
 			execute the command "/kit lorebook %event-player%"
 
 on rightclick:
-	if the player is holding an eye of ender:
+	if the player's tool is an eye of ender:
 		if the player's tool is enchanted with curse of binding:
 			cancel event
