@@ -4,4 +4,4 @@
 on right click:
   if the player is holding a stick:
     if name of the player's tool is "&6Stick of Sadness":
-      message "%block the player is looking at%" to the player
+      message "%target block of the player%" to the player
