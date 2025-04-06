@@ -6,10 +6,10 @@ every 2 seconds:
     if loop-player is holding a stick:
       if name of loop-player's tool is "&6Stick of Sadness":
         loop all mobs:
-          if loop-entity isn't a monster:
-            if distance between loop-entity and loop-player is less than 20:
-              set {_loc} to location of loop-entity
-              set {_v} to vector between loop-entity and loop-player
+          if loop-entity-2 isn't a monster:
+            if distance between loop-entity-2 and loop-player-1 is less than 20:
+              set {_loc} to location of loop-entity-2
+              set {_v} to vector between loop-entity-2 and loop-player-1
               set {_vM} to vector -1, 1, -1
               set {_v} to {_v}*{_vM}
               set {_goal} to {_loc} ~ {_v}
