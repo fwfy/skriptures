@@ -2,13 +2,13 @@
 command /glint:
   permission: skript.admin
   trigger:
-    make the player's tool start glinting
+    make player's tool start glinting
 
 # And naturally, the antivenom.
 command /unglint:
   permission: skript.admin
   trigger:
-    make the player's tool stop glinting
+    make player's tool stop glinting
 
 # Stick of Sadness
 # suggested by Kenopsia
