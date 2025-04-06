@@ -29,9 +29,9 @@ every 1 seconds:
             set {_health} to the health of loop-entity-2
             set {_i} to ({_max}/2)*-1
             while {_i} < {_max}:
-              set {_dv} to vector {_i}/5, 0, 0
+              set {_dv} to vector {_i}/5, 2, 0
               if {_i} < {_health}:
-                play 1 green dust at {_loc} ~ {_dv}
+                play 1 lime dust at {_loc} ~ {_dv}
               else:
                 play 1 red dust at {_loc} ~ {_dv}
               add 1 to {_i}
