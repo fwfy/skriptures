@@ -29,8 +29,8 @@ every 5 ticks:
               set {_max} to the max health of loop-entity-2
               set {_health} to the health of loop-entity-2
               set {_dir} to normalized vector from {_loc} to loop-player
-              set y-component of {_dir} to 0
-              set {_side} to cross product of {_dir} and vector(0, 1, 0)
+              set y component of {_dir} to 0
+              set {_side} to {_dir} cross vector(0, 1, 0)
               set {_i} to ({_max}/2)*-1
               while {_i} < {_max}:
                 set {_offset} to {_side} multiplied by ({_i} / 5)
