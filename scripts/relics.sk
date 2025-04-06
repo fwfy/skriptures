@@ -29,7 +29,7 @@ every 5 ticks:
             set {lifeseer::%{_id}%} to 20
           set {lifeseer::%{_id}%} to {lifeseer::%{_id}%} - 1
           if {lifeseer::%{_id}%} < 0:
-            apply nausea 1 to loop-player for 5 seconds
+            apply nausea 1 to loop-player for 5 seconds without particles
             # send action bar "&8The Lifeseer's Stone dims..." to loop-player
             stop
           loop all mobs:
