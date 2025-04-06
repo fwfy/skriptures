@@ -36,7 +36,7 @@ every 5 ticks:
                 set {_offset} to {_side}*({_i} / 5)
                 add 2 to y component of {_offset}
                 set {_pos} to {_loc} ~ {_offset}
-                if {_i} < {_health}:
+                if {_i} > {_health}:
                   play 1 lime dust at {_pos}
                 else:
                   play 1 red dust at {_pos}
