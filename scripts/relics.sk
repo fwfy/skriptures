@@ -13,4 +13,4 @@ every 2 seconds:
               set {_vM} to vector -5, 0, -5
               set {_v} to {_v}*{_vM}
               set {_goal} to {_loc} ~ {_v}
-              play 1 flame at {_goal}
+              make loop-entity-2 pathfind towards {_goal}
