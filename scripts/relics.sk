@@ -1,3 +1,15 @@
+# /glint command, to make relics look *Awesome*
+command /glint:
+  permission: skript.admin
+  trigger:
+    force the player's tool to glint
+
+# And naturally, the antivenom.
+command /unglint:
+  permission: skript.admin
+  trigger:
+    force the player's tool to stop glinting
+
 # Stick of Sadness
 # suggested by Kenopsia
 
