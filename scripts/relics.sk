@@ -22,23 +22,24 @@ every 5 ticks:
   loop all players:
     if loop-player is holding an emerald:
       if name of loop-player's tool is "&6Lifeseer's Stone":
+        if loop-player is sneaking and line of sight of loop-player contains loop-entity-2:
         loop all mobs:
-          if distance between loop-entity-2 and loop-player-1 is less than 20:
-            set {_loc} to location of loop-entity-2
-            set {_max} to the max health of loop-entity-2
-            set {_health} to the health of loop-entity-2
-            set {_i} to ({_max}/2)*-1
-            set {_yaw} to yaw of loop-player
-            set {_rad} to (({_yaw}*-1) + 90) * (pi / 180)
-            while {_i} < {_max}:
-              set {_x} to ({_i} / 5)
-              set {_z} to 0
-              set {_rx} to {_x} * cos({_rad}) - {_z} * sin({_rad})
-              set {_rz} to {_x} * sin({_rad}) + {_z} * cos({_rad})
-              set {_offset} to vector({_rx}, 2, {_rz})
-              set {_pos} to {_loc} ~ {_offset}
-              if {_i} < {_health}:
-                play 1 lime dust at {_pos}
-              else:
-                play 1 red dust at {_pos}
-              add 1 to {_i}
+            if distance between loop-entity-2 and loop-player-1 is less than 20:
+              set {_loc} to location of loop-entity-2
+              set {_max} to the max health of loop-entity-2
+              set {_health} to the health of loop-entity-2
+              set {_i} to ({_max}/2)*-1
+              set {_yaw} to yaw of loop-player
+              set {_rad} to (({_yaw}*-1) + 90) * (pi / 180)
+              while {_i} < {_max}:
+                set {_x} to ({_i} / 5)
+                set {_z} to 0
+                set {_rx} to {_x} * cos({_rad}) - {_z} * sin({_rad})
+                set {_rz} to {_x} * sin({_rad}) + {_z} * cos({_rad})
+                set {_offset} to vector({_rx}, 2, {_rz})
+                set {_pos} to {_loc} ~ {_offset}
+                if {_i} < {_health}:
+                  play 1 lime dust at {_pos}
+                else:
+                  play 1 red dust at {_pos}
+                add 1 to {_i}
