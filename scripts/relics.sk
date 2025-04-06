@@ -29,6 +29,7 @@ every 5 ticks:
             set {lifeseer::%{_id}%} to 20
           set {lifeseer::%{_id}%} to {lifeseer::%{_id}%} - 1
           if {lifeseer::%{_id}%} < 0:
+            remove nausea from potion effects of loop-player
             apply nausea 1 without particles to loop-player for 5 seconds
             # send action bar "&8The Lifeseer's Stone dims..." to loop-player
             stop
