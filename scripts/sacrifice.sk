@@ -4,3 +4,7 @@ on damage of entity:
                         delete victim
                         play sound "block.amethyst_block.resonate" with volume 10
                         set weather to clear
+                else if "%type of block at location of victim%" is "soul fire":
+                        delete victim
+                        play sound "block.amethyst_block.resonate" with volume 10
+                        set weather to rainy
