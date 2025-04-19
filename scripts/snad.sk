@@ -3,7 +3,7 @@ on script load:
 
 on drop:
 	wait 0.5 seconds
-	message block at event-dropped item to the player
+	# message block at event-dropped item to the player
 	if {snad::grindable::*} contains "%type of event-item%":
 		if block at event-dropped item is stonecutter:
 			delete event-dropped item
