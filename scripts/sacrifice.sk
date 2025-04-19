@@ -1,10 +1,10 @@
 on damage of entity:
         if "%victim%" is "dropped diamond":
                 if "%type of block at location of victim%" is "fire":
-                        delete victim
                         play sound "block.amethyst_block.resonate" with volume 10 from victim
                         set weather to clear
-                else if "%type of block at location of victim%" is "soul fire":
                         delete victim
+                else if "%type of block at location of victim%" is "soul fire":
                         play sound "block.amethyst_block.resonate" with volume 10 from victim
                         set weather to rainy
+                        delete victim
