@@ -2,4 +2,4 @@ on damage of entity:
         if "%victim%" is "dropped diamond":
                 if "%type of block at location of victim%" is "fire":
                         delete victim
-                        play sound "block.amethyst_block.resonate" with volume 1 from victim
+                        play sound "block.amethyst_block.resonate" with volume 1 from victim 
