@@ -43,7 +43,7 @@ every 2 ticks:
       set {_target} to {grabbed.%loop-player%}
       if {_target} is not dead:
         set {_loc} to location of loop-player
-        set {_dir} to facing of loop-player * 4
+        set {_dir} to (facing of loop-player) * 4
         set {_point} to {_loc} + {_dir}
         set {_v} to vector from location of {_target} to {_point}
         set {_v} to {_v} * 0.4
