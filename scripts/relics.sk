@@ -42,6 +42,7 @@ every 2 ticks:
           set {_target} to loop-player's targeted entity
           if {_target} is set:
             set {_v} to vector from location of {_target} to {_postarget}
+            set {_v} to {_v} * 0.5
             push {_target} {_v}
 
 # Lifeseer
