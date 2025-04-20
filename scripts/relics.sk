@@ -41,7 +41,7 @@ every 2 ticks:
           set {_postarget} to {_loc} ~ {_facing}
           set {_target} to loop-player's targeted entity
           if {_target} is set:
-            set {_v} to vector between {_target} and {_postarget}
+            set {_v} to vector from location of {_target} to {_postarget}
             push {_target} {_v}
 
 # Lifeseer
