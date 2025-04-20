@@ -35,18 +35,21 @@ every 2 ticks:
     if loop-player is holding a blaze rod:
       if name of loop-player's tool is "&6Long Tongs":
         if loop-player is sneaking:
-          set {_loc} to location of loop-player
-          set {_facing} to facing of loop-player
-          set {_facing} to {_facing} * 10  # Get 10 blocks ahead
-          set {_postarget} to {_loc} + {_facing}  # Calculate the target point 10 blocks ahead
           set {_target} to loop-player's targeted entity
           if {_target} is set:
-            # Calculate the vector from the target's current location to the calculated point
-            set {_v} to (vector from location of {_target}) + {_postarget}
-            message "%{_v}%" to loop-player
-            # Move the target towards the calculated point
-            push {_target} {_v}
-
+            set {grabbed.%loop-player%} to {_target}
+    
+    if {grabbed.%loop-player%} is set:
+      set {_target} to {grabbed.%loop-player%}
+      if {_target} is not dead:
+        set {_loc} to location of loop-player
+        set {_dir} to direction of loop-player * 4
+        set {_point} to {_loc} + {_dir}
+        set {_v} to vector from location of {_target} to {_point}
+        set {_v} to {_v} * 0.4
+        push {_target} {_v}
+      else:
+        delete {grabbed.%loop-player%}
 
 # Lifeseer
 # suggested by Nobody, i just felt like it lol
