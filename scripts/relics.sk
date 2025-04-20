@@ -36,7 +36,7 @@ every 2 ticks:
       if name of loop-player's tool is "&6Long Tongs":
         if loop-player is sneaking:
           set {_loc} to location of loop-player
-          set {_facing} to direction of loop-player
+          set {_facing} to facing of loop-player
           set {_facing} to {_facing} * 10  # Get 10 blocks ahead
           set {_postarget} to {_loc} + {_facing}  # Calculate the target point 10 blocks ahead
           set {_target} to loop-player's targeted entity
