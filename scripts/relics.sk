@@ -36,13 +36,12 @@ every 2 ticks:
       if name of loop-player's tool is "&6Long Tongs":
         if loop-player is sneaking:
           set {_loc} to location of loop-player
-          set {_facing} to the facing of loop-player
+          set {_facing} to direction of loop-player
           set {_facing} to {_facing} * 2
-          set {_postarget} to {_loc} ~ {_facing}
+          set {_postarget} to {_loc} + {_facing}
           set {_target} to loop-player's targeted entity
           if {_target} is set:
-            set {_v} to vector from location of {_target} to {_postarget}
-            set {_v} to {_v} * -0.5
+            set {_v} to vector from {_postarget} to location of {_target}
             push {_target} {_v}
 
 # Lifeseer
