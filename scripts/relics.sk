@@ -37,7 +37,7 @@ every 2 ticks:
         if loop-player is sneaking:
           set {_loc} to location of loop-player
           set {_facing} to the facing of loop-player
-          set {_facing} to {_facing} ** 2
+          set {_facing} to {_facing} * 2
           set {_postarget} to {_loc} ~ {_facing}
           set {_target} to loop-player's targeted entity
           if {_target} is set:
