@@ -35,10 +35,10 @@ every 2 ticks:
     if loop-player is holding a blaze rod:
       if name of loop-player's tool is "&6Long Tongs":
         if loop-player is sneaking:
-          set {_loc} to location of player
-          set {_facing} to direction of player
+          set {_loc} to location of loop-player
+          set {_facing} to direction of loop-player
           set {_postarget} to {_loc} offset by 10 blocks in direction {_facing}
-          set {_target} to targeted entity
+          set {_target} to loop-player's targeted entity
           if {_target} is set:
             set {_v} to vector between {_target} and {_postarget}
             push {_target} {_v}
