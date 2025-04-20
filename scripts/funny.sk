@@ -14,6 +14,10 @@ command /forceresource <string> <player>:
 	trigger:
 		send the resource pack from arg-1 to arg-2
 
+command /impregnate:
+	trigger:
+		message "your pregnat" to player
+
 command /ber:
 	trigger:
 		send the resource pack "https://fwfy.club/files/BerPack.zip" to the player
