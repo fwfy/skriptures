@@ -27,6 +27,22 @@ every 1 seconds:
               set {_goal} to {_loc} ~ {_v}
               make loop-entity-2 pathfind towards {_goal}
 
+# Long Tongs
+# just for funsies
+
+every 2 ticks:
+  loop all players:
+    if loop-player is holding a blaze rod:
+      if name of loop-player's tool is "&6Long Tongs":
+        if loop-player is sneaking:
+          set {_loc} to location of player
+          set {_facing} to direction of player
+          set {_postarget} to {_loc} offset by 10 blocks in direction {_facing}
+          set {_target} to targeted entity
+          if {_target} is set:
+            set {_v} to vector between {_target} and {_postarget}
+            push {_target} {_v}
+
 # Lifeseer
 # suggested by Nobody, i just felt like it lol
  
